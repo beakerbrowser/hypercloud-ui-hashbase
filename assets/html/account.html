@@ -9,11 +9,11 @@
 
     <div class="container pt-4 pb-5">
       <h4 class="diplay-4"><a href="/<%= userRecord.username %>"><%= userRecord.username %></a></h4>
-      <p><%= ucfirst(hashbaseAccount.plan) %> account. <%= userRecord.archives.length %> <%= pluralize(userRecord.archives.length, 'archive') %>.</p>
+      <p><%= ucfirst(sessionAccount.plan) %> account. <%= userRecord.archives.length %> <%= pluralize(userRecord.archives.length, 'archive') %>.</p>
       <div class="progress">
         <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">75 / 100 MB Used</div>
       </div>
-      <% if (hashbaseAccount.plan === 'basic') { %>
+      <% if (sessionAccount.plan === 'basic') { %>
         <p class="pt-4 text-muted">
           <a class="btn btn-outline-success" href="/account/upgrade">Upgrade to Pro</a>
           to increase your limit to 10GB.

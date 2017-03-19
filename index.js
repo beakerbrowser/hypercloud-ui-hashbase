@@ -24,6 +24,11 @@ module.exports = function ({cloud, config}) {
   app.set('view engine', 'html')
   app.set('views', path.join(__dirname, 'assets/html'))
 
+  // middleware
+  // =
+
+  app.use(hashbase.sessionsExtension.middleware())
+
   // assets
   // =
 
