@@ -37,6 +37,11 @@
     <% include com/footer.html %>
     <% include com/stdjs.html %>
     <script src="https://js.stripe.com/v3/"></script>
+    <script>
+    window.params = {
+      stripePK: "<%= stripePK %>"
+    }
+    </script>
     <script src="/assets/js/account-upgrade.js"></script>
   </body>
 </html>

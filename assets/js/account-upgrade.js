@@ -3,7 +3,7 @@
 // account upgrade page js
 $(function () {
   // create stripe elements
-  var stripe = Stripe('pk_test_ITP1ULQITyrLuqBsyuSYVbEL')
+  var stripe = Stripe(window.params.stripePK)
   var elements = stripe.elements()
   var card = elements.create('card', {style: {
     base: {
