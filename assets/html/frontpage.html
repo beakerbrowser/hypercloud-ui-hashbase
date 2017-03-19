@@ -20,7 +20,7 @@
           <% include com/activity.html %>
         </div>
         <div class="col-3" style="border-left: 1px solid #ddd">
-          <% if (session) { %>
+          <% if (userRecord) { %>
             <div><strong><%= userRecord.username %></strong></div>
             <% if (userRecord.archives.length > 0) { %>
               <% userRecord.archives.forEach(a => { %>

@@ -24,6 +24,16 @@
         </div>
         <small>Upload Progress: <%= progress %>% (refresh page to check latest)</small>
       </div>
+      <table class="table mt-2">
+        <tbody>
+          <tr>
+            <td><a href="<%= niceUrl %>" title="<%= niceUrl %>"><%= niceUrl %></a></td>
+          </tr>
+          <tr>
+            <td><a href="<%= rawUrl %>" title="<%= rawUrl %>"><%= rawUrl %></a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="modal" id="delete-modal">

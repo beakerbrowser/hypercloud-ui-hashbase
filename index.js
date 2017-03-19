@@ -1,22 +1,13 @@
 const path = require('path')
 const express = require('express')
 const lessExpress = require('less-express')
-const wrap = require('co-express')
 const ejs = require('ejs')
 
-const PagesAPI = require('./lib/apis/pages')
-const UsersAPI = require('./lib/apis/users')
+const Hashbase = require('./lib/index')
 
 module.exports = function ({cloud, config}) {
   var app = express()
-  var apis = {
-    pages: new PagesAPI({cloud, config}),
-    users: new UsersAPI({cloud, config})
-  }
-
-  // wrap all methods in promise handling
-  wrapAll(apis.pages)
-  wrapAll(apis.users)
+  var hashbase = new Hashbase(cloud)
 
   app.locals = {
     session: false, // default session value
@@ -39,26 +30,30 @@ module.exports = function ({cloud, config}) {
   app.get('/assets/css/main.css', lessExpress(path.join(__dirname, 'assets/css/main.less')))
   app.use('/assets/css', express.static(path.join(__dirname, 'assets/css')))
   app.use('/assets/js', express.static(path.join(__dirname, 'assets/js')))
+  app.use('/assets/fonts', express.static(path.join(__dirname, 'assets/fonts')))
 
   // pages
   // =
 
-  app.get('/', apis.pages.frontpage)
-  app.get('/explore', apis.pages.explore)
-  app.get('/new-archive', apis.pages.newArchive)
-  app.get('/about', apis.pages.about)
-  app.get('/terms', apis.pages.terms)
-  app.get('/privacy', apis.pages.privacy)
-  app.get('/support', apis.pages.support)
-  app.get('/login', apis.pages.login)
-  app.get('/register', apis.pages.register)
-  app.get('/registered', apis.pages.registered)
+  app.get('/', hashbase.apis.pages.frontpage)
+  app.get('/explore', hashbase.apis.pages.explore)
+  app.get('/new-archive', hashbase.apis.pages.newArchive)
+  app.get('/about', hashbase.apis.pages.about)
+  app.get('/terms', hashbase.apis.pages.terms)
+  app.get('/privacy', hashbase.apis.pages.privacy)
+  app.get('/support', hashbase.apis.pages.support)
+  app.get('/login', hashbase.apis.pages.login)
+  app.get('/register', hashbase.apis.pages.register)
+  app.get('/registered', hashbase.apis.pages.registered)
+  app.get('/profile', hashbase.apis.pages.profileRedirect)
+  app.get('/account/upgrade', hashbase.apis.pages.accountUpgrade)
+  app.get('/account', hashbase.apis.pages.account)
 
   // user pages
   // =
 
-  app.get('/:username([a-z0-9]{3,})/:archivename([a-z0-9]{3,})', apis.users.viewArchive)
-  app.get('/:username([a-z0-9]{3,})', apis.users.viewUser)
+  app.get('/:username([a-z0-9]{3,})/:archivename([a-z0-9-]{3,})', hashbase.apis.userContent.viewArchive)
+  app.get('/:username([a-z0-9]{3,})', hashbase.apis.userContent.viewUser)
 
   // error-handling fallback
   // =
@@ -86,13 +81,4 @@ module.exports = function ({cloud, config}) {
   })
 
   return app
-}
-
-function wrapAll (api) {
-  for (let methodName of Object.getOwnPropertyNames(Object.getPrototypeOf(api))) {
-    let method = api[methodName]
-    if (typeof method === 'function' && methodName.charAt(0) !== '_') {
-      api[methodName] = wrap(method.bind(api))
-    }
-  }
 }
