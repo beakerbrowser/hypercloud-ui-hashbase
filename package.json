@@ -4,7 +4,7 @@
   "description": "Hashbase UI module for Hypercloud",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "standard"
   },
   "keywords": [
     "hypercloud",
@@ -13,6 +13,7 @@
   "author": "Paul Frazee <pfrazee@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "co-express": "^2.0.0",
     "ejs": "^2.5.6",
     "express": "^4.15.2",
     "less-express": "^1.1.0",

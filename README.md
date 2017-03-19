@@ -1,3 +1,3 @@
-# Hypercloud Vanilla UI
+# Hypercloud Hashbase UI
 
-Vanilla UI module for [hypercloud](https://github.com/datprotocol/hypercloud)
+Hashbase UI module for [hypercloud](https://github.com/datprotocol/hypercloud)
