@@ -47,7 +47,13 @@ module.exports = function ({cloud, config}) {
   app.get('/registered', hashbase.apis.pages.registered)
   app.get('/profile', hashbase.apis.pages.profileRedirect)
   app.get('/account/upgrade', hashbase.apis.pages.accountUpgrade)
+  app.get('/account/upgraded', hashbase.apis.pages.accountUpgraded)
   app.get('/account', hashbase.apis.pages.account)
+
+  // accounts api
+  // =
+
+  app.post('/v1/hashbase-accounts/upgrade', hashbase.apis.accounts.upgradeAccount)
 
   // user pages
   // =
@@ -63,10 +69,25 @@ module.exports = function ({cloud, config}) {
   })
 
   app.use((err, req, res, next) => {
+    var contentType = req.accepts(['json', 'html'])
+
+    // validation errors
+    if ('isEmpty' in err) {
+      return res.status(422).json({
+        message: 'There were errors in your submission',
+        invalidInputs: true,
+        details: err.mapped()
+      })
+    }
+
     // common errors
     if ('status' in err) {
       res.status(err.status)
-      res.render('error', { error: err })
+      if (contentType === 'json') {
+        res.json(err.body)
+      } else {
+        res.render('error', { error: err })
+      }
       return
     }
 
@@ -77,7 +98,11 @@ module.exports = function ({cloud, config}) {
       message: 'Internal server error',
       internalError: true
     }
-    res.render('error', {error})
+    if (contentType === 'json') {
+      res.json(error)
+    } else {
+      res.render('error', {error})
+    }
   })
 
   return app
