@@ -53,12 +53,15 @@ module.exports = function ({cloud, config}) {
   app.get('/profile', hashbase.apis.pages.profileRedirect)
   app.get('/account/upgrade', hashbase.apis.pages.accountUpgrade)
   app.get('/account/upgraded', hashbase.apis.pages.accountUpgraded)
+  app.get('/account/cancel-plan', hashbase.apis.pages.accountCancelPlan)
+  app.get('/account/canceled-plan', hashbase.apis.pages.accountCanceledPlan)
   app.get('/account', hashbase.apis.pages.account)
 
   // accounts api
   // =
 
-  app.post('/v1/hashbase-accounts/upgrade', hashbase.apis.accounts.upgradeAccount)
+  app.post('/v1/hashbase-accounts/upgrade', hashbase.apis.accounts.upgrade)
+  app.post('/v1/hashbase-accounts/cancel-plan', hashbase.apis.accounts.cancelPlan)
 
   // user pages
   // =

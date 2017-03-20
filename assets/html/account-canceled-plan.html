@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Your plan has been canceled - <%= appInfo.brandname %></title>
+    <% include com/stdhead.html %>
+  </head>
+  <body>
+    <% include com/nav.html %>
+    
+    <div class="container">
+      <div class="mx-auto pt-5 pb-5" style="width: 300px;">
+        <h2 class="text-muted">Ok!</h2>
+        <div class="card mb-3">
+          <div class="card-block text-center">
+            Your plan has been canceled.
+            <hr>
+            <a href="/account">Go to Account</a>
+            <hr>
+            <a href="/profile">Go to Profile</a>
+          </div>
+        </div>
+        <div class="text-center text-muted thin mb-3">
+          Feel free to upgrade again in the future!
+        </div>
+        <div class="card bg-faded text-center text-muted" style="font-weight: 100;">
+          <div class="card-block">
+            Problem? <a href="/support">Contact Support</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% include com/footer.html %>
+    <% include com/stdjs.html %>
+  </body>
+</html>
