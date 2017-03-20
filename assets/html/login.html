@@ -7,6 +7,11 @@
   <body class="bg-faded">
     <div class="container">
       <form class="form-login" action="/login" method="POST">
+        <% if (reset) { %>
+          <div class="alert alert-success" role="alert">
+            Your password has been updated.
+          </div>
+        <% } %>
         <h2 class="form-login-heading text-muted">Sign in to<br><%= appInfo.brandname %></h2>
         <div id="error-general" class="alert alert-warning" role="alert"></div>
         <div class="card mb-3">
@@ -21,10 +26,15 @@
               <input type="password" name="password" class="form-control" id="input-password">
               <div id="error-password" class="form-control-feedback"></div>
             </div>
-            <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+            <p>
+              <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+            </p>
+            <div class="text-right">
+              <a href="/forgot-password">Forgot password &raquo;</a>
+            </div>
           </div>
         </div>
-        <div class="card bg-faded text-center text-muted" style="font-weight: 100;">
+        <div class="card bg-faded text-center text-muted thin">
           <div class="card-block">
             New? <a href="/register">Create an account</a>.
           </div>

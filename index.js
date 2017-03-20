@@ -48,6 +48,8 @@ module.exports = function ({cloud, config}) {
   app.get('/privacy', hashbase.apis.pages.privacy)
   app.get('/support', hashbase.apis.pages.support)
   app.get('/login', hashbase.apis.pages.login)
+  app.get('/forgot-password', hashbase.apis.pages.forgotPassword)
+  app.get('/reset-password', hashbase.apis.pages.resetPassword)
   app.get('/register', hashbase.apis.pages.register)
   app.get('/registered', hashbase.apis.pages.registered)
   app.get('/profile', hashbase.apis.pages.profileRedirect)
@@ -55,6 +57,7 @@ module.exports = function ({cloud, config}) {
   app.get('/account/upgraded', hashbase.apis.pages.accountUpgraded)
   app.get('/account/cancel-plan', hashbase.apis.pages.accountCancelPlan)
   app.get('/account/canceled-plan', hashbase.apis.pages.accountCanceledPlan)
+  app.get('/account/change-password', hashbase.apis.pages.accountChangePassword)
   app.get('/account', hashbase.apis.pages.account)
 
   // accounts api

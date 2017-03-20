@@ -8,6 +8,11 @@
     <% include com/nav.html %>
 
     <div class="container pt-4 pb-5">
+      <% if (updated) { %>
+        <div class="alert alert-success" role="alert">
+          Your account has been updated.
+        </div>
+      <% } %>
       <h4 class="diplay-4"><a href="/<%= userRecord.username %>"><%= userRecord.username %></a></h4>
       <p><%= ucfirst(sessionAccount.plan) %> account. <%= userRecord.archives.length %> <%= pluralize(userRecord.archives.length, 'archive') %>.</p>
       <div class="progress">
@@ -19,27 +24,21 @@
             Limit: 100 MB.
           </p>
           <p>
-            <a href="#"><i class="fa fa-pencil"></i> Change password</a>
+            <a href="/account/change-password"><i class="fa fa-pencil"></i> Change password</a>
           </p>
           <p>
             <a href="/account/upgrade"><i class="fa fa-arrow-circle-up"></i> Upgrade to Pro</a>
             to increase your limit to 10 GB.
-          </p>
-          <p>
-            <a href="#"><i class="fa fa-ban"></i> Close account</a>
           </p>
         <% } else { %>
           <p>
             Limit: 10 GB.
           </p>
           <p>
-            <a href="#"><i class="fa fa-pencil"></i> Change password</a>
+            <a href="/account/change-password"><i class="fa fa-pencil"></i> Change password</a>
           </p>
           <p>
             <a href="/account/cancel-plan"><i class="fa fa-times"></i> Downgrade to free account</a>
-          </p>
-          <p>
-            <a href="#"><i class="fa fa-ban"></i> Close account</a>
           </p>
         <% } %>
       </div>
