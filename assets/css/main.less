@@ -10,12 +10,22 @@
 @import './forms/account-upgrade';
 @import './forms/account-change-password';
 
-.thin {
-  font-weight: 100;
-}
-
 .alert:empty {
   display: none; // hide alerts with no content
+}
+
+body {
+  font-size: 1rem;
+  color: #333;
+
+  a {
+    color: #2b35c7;
+
+    &:hover {
+      text-decoration: underline;
+      color: #2b35c7;
+    }
+  }
 }
 
 // set overall widths
