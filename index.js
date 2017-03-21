@@ -36,6 +36,7 @@ module.exports = function ({cloud, config}) {
   app.use('/assets/css', express.static(path.join(__dirname, 'assets/css')))
   app.use('/assets/js', express.static(path.join(__dirname, 'assets/js')))
   app.use('/assets/fonts', express.static(path.join(__dirname, 'assets/fonts')))
+  app.use('/assets/images', express.static(path.join(__dirname, 'assets/images')))
 
   // pages
   // =
