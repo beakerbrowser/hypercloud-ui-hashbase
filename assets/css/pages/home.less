@@ -18,18 +18,19 @@ main.home {
   .hero {
     &:extend(.antialiased);
     font-weight: 500;
+    padding: 1rem 0 3rem 0;
 
     @media (min-width: @tablet-horizontal) {
-      padding-bottom: 4rem;
+      padding: 2rem 0 4rem 0;
     }
 
     .tagline,
     .blurb {
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
 
     .blurb {
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
 
       a {
         &:extend(.link);
