@@ -8,32 +8,29 @@
       <li class="nav-item">
         <a href="/about">About</a>
       </li>
-      <li class="nav-item">
-        <a href="/pricing">Pricing</a>
-      </li>
       <% if (session) { %>
         <li class="nav-item">
-          <a href="/profile">Hi, Tara</a>
-          <i class="fa fa-caret-down"></i>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="/profile">Your profile</a>
-            <a class="dropdown-item" href="/account">Settings</a>
-            <a class="dropdown-item" href="/new-archive">New archive</a>
-            <%if (sessionAccount && sessionAccount.plan === 'basic') { %>
+          <a href="/profile">Hi, <%= userRecord.username %></a>
+          <span class="dropdown-menu-link">
+            <i class="fa fa-caret-down"></i>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/profile">Your profile</a>
+              <a class="dropdown-item" href="/account">Settings</a>
               <a class="dropdown-item" href="/pro">
-                <span class="pro">Pro</span>
-                  Upgrade to pro
+                Upgrade to pro
+                <span class="pro-tag">pro</span>
               </a>
-            <% } %>
-            <hr>
-            <a class="dropdown-item" href="/logout">Logout</a>
-          </div>
+              <a class="dropdown-item" href="/logout">Logout</a>
+              <hr>
+              <a class="dropdown-item" href="/new-archive">New archive</a>
+            </div>
+          </span>
         </li>
       <% } else { %>
-        <li class="nav-item btn transparent">
+        <li class="nav-item">
           <a href="/login">Login</a>
         </li>
-        <li class="nav-item btn primary">
+        <li class="nav-item btn primary register">
           <a href="/register">Sign up</a>
         </li>
       <% } %>

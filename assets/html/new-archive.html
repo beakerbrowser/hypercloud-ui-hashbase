@@ -7,28 +7,44 @@
   <body>
     <% include com/nav.html %>
 
-    <div class="container py-4">
-      <h4>Upload a new archive</h4>
-      <p class="text-muted">An archive contains a set of files.</p>
-
-      <p class="text-muted text-center my-5 w-75 mx-auto" style="font-size: 90%">
-        Archives can be created <a href="https://github.com/datproject/dat" target="_blank">from the command-line</a> or <a href="https://github.com/datproject/dat-desktop" target="_blank">desktop app</a>, or by using the <a href="https://beakerbrowser.com" target="_blank">Beaker Browser</a>.
-        After creating the site, you will be given a URL.
-        Enter that URL here.
+    <div class="container">
+      <form id="add-archive-form" action="/vi/archives/add" method="POST" class="form modal-form">
+      <h1 class="form-heading">Upload a new archive</h1>
+      <p class="form-desc">
+      An archive contains a set of files. Archives can be created <a
+         href="https://github.com/datproject/dat">from the command line</a> or
+       <a href="https://github.com/datproject/dat-desktop">desktop app</a>, or
+       by using the <a href="https://beakerbrowser.com">Beaker browser</a>.
       </p>
 
-      <form id="add-archive-form" class="mt-5" action="/v1/archives/add" method="POST">
-        <div class="form-group">
-          <input type="text" class="form-control" id="add-archive-key-input" placeholder="Enter the URL of the Archive you want to host on <%= appInfo.brandname %>" name="key">
-          <div id="add-archive-key-error" class="form-control-feedback"></div>
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" id="add-archive-name-input" placeholder="Name" name="name">
-          <div id="add-archive-name-error" class="form-control-feedback"></div>
-          <small id="emailHelp" class="form-text text-muted">The archive will be at <span id="add-archive-name-output">name</span>.<%= userRecord.username %>.<%= appInfo.hostname %>.</small>
-        </div>
-        <button id="add-archive-submit-btn" type="submit" class="btn btn-primary" disabled>Add Archive</button>
-      </form>
+      <p class="form-desc">
+        After creating your archive, you will be given a URL. Enter it
+        below to upload it to Hashbase.
+      </p>
+
+      <p class="form-group">
+        <label for="add-archive-key-input">
+          The URL of the archive to host on <%= appInfo.brandname %>
+        </label>
+        <input autofocus type="text" class="form-control" id="add-archive-key-input"
+                                              placeholder="dat://" name="key">
+        <div id="add-archive-key-error" class="form-control-feedback"></div>
+      </p>
+
+      <p class="form-group">
+        <label for="add-archive-name-input">Name</label>
+        <input type="text" class="form-control" id="add-archive-name-input"
+        placeholder="Untitled" name="name">
+        <div id="add-archive-name-error" class="form-control-feedback"></div>
+        <span id="emailHelp">The archive will be at <span id="add-archive-name-output">name</span>.<%= userRecord.username %>.<%= appInfo.hostname %>.</span>
+      </p>
+
+      <div class="actions">
+        <button id="add-archive-submit-btn" type="submit" class="btn success" disabled>
+          Add Archive
+        </button>
+      </div>
+    </form>
     </div>
 
     <% include com/footer.html %>
