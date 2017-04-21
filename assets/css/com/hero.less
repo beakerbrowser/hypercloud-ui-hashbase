@@ -1,0 +1,20 @@
+.hero {
+  width: 100%;
+  padding: 2rem 0;
+  background: @color-text;
+  color: fadeout(white, 2%);
+
+  h1.tagline,
+  p.blurb {
+    &:extend(.antialiased);
+  }
+
+  h1.tagline {
+    &:extend(.text-shadow);
+    font-size: 1.4rem;
+  }
+
+  p.blurb {
+    font-size: 1.2rem;
+  }
+}
