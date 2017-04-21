@@ -6,29 +6,29 @@
   </head>
   <body>
     <% include com/nav.html %>
-    
+
+    <main>
     <div class="container">
-      <div class="mx-auto pt-5 pb-5" style="width: 300px;">
-        <h2 class="text-muted">Ok!</h2>
-        <div class="card mb-3">
-          <div class="card-block text-center">
-            Your account has been upgraded.
-            <hr>
-            <a href="/account">Go to Account</a>
-            <hr>
-            <a href="/profile">Go to Profile</a>
-          </div>
-        </div>
-        <div class="text-center text-muted thin mb-3">
-          You will receive a receipt in your email.
-        </div>
-        <div class="card bg-faded text-center text-muted" style="font-weight: 100;">
-          <div class="card-block">
-            Problem? <a href="/support">Contact Support</a>
-          </div>
-        </div>
+      <div class="card modal">
+        <h1>You've upgraded to Pro</h1>
+        <p>
+          You will receive a receipt via email.
+        </p>
+
+        <p>
+          Until then, why don't you <a href="/new-archive">upload a new
+          archive!
+        </p>
+
+        <ul>
+          <li><a href="/account">Manage account</a></li>
+          <li><a href="/profile">View profile</a></li>
+        </ul>
       </div>
+
+      <p class="card modal">Problem? <a href="/support">Contact Support</a></p>
     </div>
+    </main>
 
     <% include com/footer.html %>
     <% include com/stdjs.html %>
