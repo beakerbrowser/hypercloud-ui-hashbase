@@ -1,7 +1,16 @@
 .container {
   max-width: 1000px;
   margin: auto;
-  padding: 0 6px;
+  padding: 0 7px;
+
+  &.medium {
+    max-width: 700px;
+  }
+
+  &.small {
+    // TODO: use this instead of manually setting .modal-form width -tbv
+    max-width: 400px;
+  }
 
   @media (min-width: @tablet-vertical) {
     padding: 0 10px;

@@ -45,6 +45,7 @@ module.exports = function ({ cloud, config }) {
   app.get('/explore', hashbase.apis.pages.explore)
   app.get('/new-archive', hashbase.apis.pages.newArchive)
   app.get('/about', hashbase.apis.pages.about)
+  app.get('/pricing', hashbase.apis.pages.pricing)
   app.get('/terms', hashbase.apis.pages.terms)
   app.get('/privacy', hashbase.apis.pages.privacy)
   app.get('/support', hashbase.apis.pages.support)
