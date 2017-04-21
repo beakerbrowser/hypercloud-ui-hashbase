@@ -1,8 +1,27 @@
 .rounded {
-  border-radius: 4px;
+  border-radius: 3px;
   overflow: hidden;
+}
 
-  &.subtle {
-    border-radius: 2px;
-  }
+.rounded-extra {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.box-shadow {
+  box-shadow: 0 20px 60px -10px fadeout(black, 80%);
+}
+
+.text-shadow {
+  text-shadow: fadeout(black, 85%) 1px 1px 1px;
+}
+
+.hero-gradient {
+  //background: linear-gradient(350deg, @teal 3%, @blue 50%, @purple 85%);
+  background: url(/assets/images/lines.svg), linear-gradient(to right, #7b4397 10%, #dc2430 90%);
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
 }
