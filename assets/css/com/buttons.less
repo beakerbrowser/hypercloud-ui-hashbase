@@ -49,6 +49,23 @@ button.btn {
     }
   }
 
+  &.cancel {
+    &:extend(.antialiased);
+    font-weight: 700;
+    letter-spacing: .01rem;
+    color: @color-text--white-transparent;
+    background: @red;
+    border: 1px solid @red;
+
+    i {
+      font-weight: 700;
+    }
+
+    &:hover {
+      background: shade(@red, 5%);
+    }
+  }
+
   &.transparent {
     background: none;
     border: 1px solid @color-border--transparent-btn;
