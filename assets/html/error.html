@@ -7,9 +7,9 @@
   <body>
     <% include com/nav.html %>
 
-    <div class="container pt-5 text-center">
-      <h2 class="display-2"><%= error.status %></h2>
-      <h3 class="pt-3 pb-1"><%= error.message || error.body.message %></h3>
+    <div class="container">
+      <h1><%= error.status %></h1>
+      <p><%= error.message || error.body.message %></p>
       <p class="text-muted">Lost? <a href="/support">Contact Support</a></p>
     </div>
 
