@@ -1,4 +1,13 @@
 .container {
   max-width: 1000px;
   margin: auto;
+  padding: 0 6px;
+
+  @media (min-width: @tablet-vertical) {
+    padding: 0 10px;
+  }
+
+  @media (min-width: @tablet-horizontal) {
+    padding: 0 25px;
+  }
 }
