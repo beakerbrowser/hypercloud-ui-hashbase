@@ -1,4 +1,5 @@
-body.home {
+main.home {
+  padding-top: 0;
 
   .hero-container {
     background: @color-text;
@@ -16,8 +17,11 @@ body.home {
 
   .hero {
     &:extend(.antialiased);
-    padding: 1rem 0 4rem 0;
     font-weight: 500;
+
+    @media (min-width: @tablet-horizontal) {
+      padding-bottom: 4rem;
+    }
 
     .tagline,
     .blurb {
@@ -26,6 +30,10 @@ body.home {
 
     .blurb {
       margin-bottom: 1.5rem;
+
+      a {
+        &:extend(.link);
+      }
     }
 
     .intro .cta {
@@ -96,20 +104,6 @@ body.home {
         li {
           margin-left: 15px;
         }
-      }
-    }
-
-    @media (min-width: @tablet-horizontal) {
-      .intro,
-      .pricing {
-        display: inline-block;
-        width: 48%;
-        vertical-align: top;
-      }
-
-      .pricing {
-        margin-top: 0;
-        margin-left: 2rem;
       }
     }
   }
