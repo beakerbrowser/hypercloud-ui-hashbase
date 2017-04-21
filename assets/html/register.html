@@ -7,6 +7,7 @@
   <body>
     <% include com/nav.html %>
 
+    <main>
     <div class="container">
       <form class="form modal-form register" action="/v1/register" method="POST">
         <h1 class="heading">Join <%= appInfo.brandname %></h1>
@@ -32,7 +33,7 @@
           <label for="input-password">Password</label>
           <input type="password" name="password" class="form-control" id="input-password" />
           <div id="error-password" class="form-control-feedback"></div>
-          <span id="emailHelp" class="form-control-feedback">
+          <span class="form-control-feedback">
             Must be at least 6 characters long.
           </span>
         </p>
@@ -42,8 +43,9 @@
         </div>
       </form>
     </div>
+    </main>
 
-    <% include com/footer.html %>
+    <% include com/footer-light.html %>
     <% include com/stdjs.html %>
     <script src="/assets/js/register.js"></script>
   </body>
