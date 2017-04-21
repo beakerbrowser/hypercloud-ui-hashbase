@@ -7,11 +7,13 @@
   <body>
     <% include com/nav.html %>
 
+    <main class="error">
     <div class="container">
-      <h1><%= error.status %></h1>
+      <h1><%= error.status || 500 %> - Error</h1>
       <p><%= error.message || error.body.message %></p>
-      <p class="text-muted">Lost? <a href="/support">Contact Support</a></p>
+      <p>Lost? <a href="/support">Contact Support</a></p>
     </div>
+    </main>
 
     <% include com/footer.html %>
     <% include com/stdjs.html %>
