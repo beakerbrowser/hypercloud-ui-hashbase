@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Account: <%= userRecord.username %> - <%= appInfo.brandname %></title>
+    <title>Account: <%= sessionUser.username %> - <%= appInfo.brandname %></title>
     <% include com/stdhead.html %>
   </head>
   <body>
@@ -13,8 +13,8 @@
           Your account has been updated.
         </div>
       <% } %>
-      <h4 class="diplay-4"><a href="/<%= userRecord.username %>"><%= userRecord.username %></a></h4>
-      <p><%= ucfirst(sessionAccount.plan) %> account. <%= userRecord.archives.length %> <%= pluralize(userRecord.archives.length, 'archive') %>.</p>
+      <h4 class="diplay-4"><a href="/<%= sessionUser.username %>"><%= sessionUser.username %></a></h4>
+      <p><%= ucfirst(sessionAccount.plan) %> account. <%= sessionUser.archives.length %> <%= pluralize(sessionUser.archives.length, 'archive') %>.</p>
       <div class="progress">
         <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">75 / 100 MB Used</div>
       </div>

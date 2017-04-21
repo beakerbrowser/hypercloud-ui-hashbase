@@ -36,7 +36,7 @@
         <input type="text" class="form-control" id="add-archive-name-input"
         placeholder="Untitled" name="name">
         <div id="add-archive-name-error" class="form-control-feedback"></div>
-        <span id="emailHelp">The archive will be at <span id="add-archive-name-output">name</span>.<%= userRecord.username %>.<%= appInfo.hostname %>.</span>
+        <span id="emailHelp">The archive will be at <span id="add-archive-name-output">name</span>.<%= sessionUser.username %>.<%= appInfo.hostname %>.</span>
       </p>
 
       <div class="actions">
@@ -51,7 +51,7 @@
     <% include com/stdjs.html %>
     <script>
     window.params = {
-      username: "<%= userRecord.username %>"
+      username: "<%= sessionUser.username %>"
     }
     </script>
     <script src="/assets/js/new-archive.js"></script>

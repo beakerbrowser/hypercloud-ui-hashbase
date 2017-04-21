@@ -10,7 +10,7 @@
       </li>
       <% if (session) { %>
         <li class="nav-item">
-          <a href="/profile">Hi, <%= userRecord.username %></a>
+          <a href="/profile">Hi, <%= sessionUser.username %></a>
           <span class="dropdown-menu-link">
             <i class="fa fa-caret-down"></i>
             <div class="dropdown-menu">

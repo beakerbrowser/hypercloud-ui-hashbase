@@ -5,7 +5,7 @@ const ejs = require('ejs')
 
 const Hashbase = require('./lib/index')
 
-module.exports = function ({cloud, config}) {
+module.exports = function ({ cloud, config }) {
   var app = express()
   var hashbase = new Hashbase(cloud)
 
@@ -113,7 +113,7 @@ module.exports = function ({cloud, config}) {
     if (contentType === 'json') {
       res.json(error)
     } else {
-      res.render('error', {error})
+      res.render('error', { error })
     }
   })
 
