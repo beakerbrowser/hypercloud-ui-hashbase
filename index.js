@@ -11,6 +11,8 @@ module.exports = function ({ cloud, config }) {
 
   app.locals = {
     session: false, // default session value
+    sessionUser: false,
+    sessionAccount: false,
     errors: false, // common default value
     appInfo: {
       version: cloud.version,
