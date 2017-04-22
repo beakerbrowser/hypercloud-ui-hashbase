@@ -7,54 +7,45 @@
   <body>
     <% include com/nav.html %>
 
+    <main>
     <div class="container">
-      <form class="form-register" action="/register" method="POST">
-        <h1 class="form-heading mb-4">Join <%= appInfo.brandname %></h1>
+      <form class="form modal-form register" action="/v1/register" method="POST">
+        <h1 class="heading">Join <%= appInfo.brandname %></h1>
         <div id="error-general" class="alert alert-warning" role="alert"></div>
-        <div class="row pl-3">
-          <div class="col-7 pt-4 pb-4 pl-4 pr-5 bg-faded rounded">
-            <div class="form-group">
-              <label for="input-username">Username</label>
-              <input type="text" name="username" class="form-control" id="input-username">
-              <div id="error-username" class="form-control-feedback"></div>
-              <small id="emailHelp" class="form-text text-muted">Your site will be <span id="output-username">username</span>.<%= appInfo.hostname %>.</small>
-            </div>
-            <div class="form-group">
-              <label for="input-email">Email address</label>
-              <input type="text" name="email" class="form-control" id="input-email">
-              <div id="error-email" class="form-control-feedback"></div>
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div class="form-group">
-              <label for="input-password">Password</label>
-              <input type="password" name="password" class="form-control" id="input-password">
-              <div id="error-password" class="form-control-feedback"></div>
-              <small id="emailHelp" class="form-text text-muted">Must be at least 6 characters long.</small>
-            </div>
-            <button class="btn success btn-block" type="submit">Create Your Account</button>
+
+        <p class="form-group">
+          <label for="input-username">Username</label>
+          <input autofocus type="text" name="username" class="form-control" id="input-username"/>
+          <div id="error-username" class="form-control-feedback"></div>
+          <div id="emailHelp" class="form-control-feedback">
+            Your profile URL will be
+            <span id="output-username">username</span><span>.<%= appInfo.hostname %></span>
           </div>
-          <div class="col-5">
-            <div class="card" style="width: 250px">
-              <div class="card-block">
-                <p class="card-text"><strong><%= appInfo.brandname %></strong> is a host for P2P websites.</p>
-              </div>
-            </div>
-            <div class="text-muted pt-2" style="font-weight: 100; font-size: 90%">
-              <p>
-              </p>
-              <p>
-                Archives can be synced <a href="https://github.com/datproject/dat" target="_blank">from the command-line</a> or <a href="https://github.com/datproject/dat-desktop" target="_blank">desktop app</a>, or browsed using the <a href="https://beakerbrowser.com" target="_blank">Beaker Browser</a>.
-              </p>
-              <p>
-                Confused? <a href="/about">Learn more</a>.
-              </p>
-            </div>
-          </div>
+        </p>
+
+        <p class="form-group">
+          <label for="input-email">Email address</label>
+          <input type="text" name="email" class="form-control" id="input-email">
+          <div id="error-email" class="form-control-feedback"></div>
+        </p>
+
+        <p class="form-group">
+          <label for="input-password">Password</label>
+          <input type="password" name="password" class="form-control" id="input-password" />
+          <div id="error-password" class="form-control-feedback"></div>
+          <span class="form-control-feedback">
+            Must be at least 6 characters long.
+          </span>
+        </p>
+
+        <div class="actions">
+          <button class="btn success" type="submit">Create your account</button>
         </div>
       </form>
     </div>
+    </main>
 
-    <% include com/footer.html %>
+    <% include com/footer-light.html %>
     <% include com/stdjs.html %>
     <script src="/assets/js/register.js"></script>
   </body>

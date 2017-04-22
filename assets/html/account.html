@@ -1,48 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Account: <%= userRecord.username %> - <%= appInfo.brandname %></title>
+    <title>Account: <%= sessionUser.username %> - <%= appInfo.brandname %></title>
     <% include com/stdhead.html %>
   </head>
   <body>
     <% include com/nav.html %>
 
-    <div class="container pt-4 pb-5">
+    <main class="account">
+    <div class="container">
       <% if (updated) { %>
-        <div class="alert alert-success" role="alert">
+        <p class="alert success" role="alert">
           Your account has been updated.
-        </div>
+        </p>
       <% } %>
-      <h4 class="diplay-4"><a href="/<%= userRecord.username %>"><%= userRecord.username %></a></h4>
-      <p><%= ucfirst(sessionAccount.plan) %> account. <%= userRecord.archives.length %> <%= pluralize(userRecord.archives.length, 'archive') %>.</p>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">75 / 100 MB Used</div>
+
+      <h1>
+        Hi, <a class="username-link" href="/<%= sessionUser.username %>"><%= sessionUser.username %></a>
+      </h1>
+
+      <div class="usage">
+        <h2>Storage</h2>
+        <div class="progress-bar-container">
+          <span class="label">75/100 MB</span>
+          <div class="progress-bar"
+               role="progressbar"
+               data-value="75"
+               data-min="0"
+               data-max="100"
+               data-label="MB"
+               aria-valuenow="75"
+               aria-valuemin="0"
+               aria-valuemax="100">
+            <div class="progress"></div>
+          </div>
+        </div>
+
+        <p>
+          <%= sessionUser.archives.length %> <%=
+          pluralize(sessionUser.archives.length, 'archive') %>
+          <a href="/profile">View your profile</a>
+        </p>
       </div>
-      <div class="pt-4 text-muted">
+
+      <div class="settings">
+        <h2>Account settings</h2>
+
+        <div class="actions">
+        <a href="/account/change-password">Change password</a>
+
         <% if (sessionAccount.plan === 'basic') { %>
-          <p>
-            Limit: 100 MB.
-          </p>
-          <p>
-            <a href="/account/change-password"><i class="fa fa-pencil"></i> Change password</a>
-          </p>
-          <p>
-            <a href="/account/upgrade"><i class="fa fa-arrow-circle-up"></i> Upgrade to Pro</a>
-            to increase your limit to 10 GB.
-          </p>
+        <button class="btn outline">
+          <span>Upgrade</span>
+          <span class="pro-tag">Pro</span>
+        </button>
         <% } else { %>
-          <p>
-            Limit: 10 GB.
-          </p>
-          <p>
-            <a href="/account/change-password"><i class="fa fa-pencil"></i> Change password</a>
-          </p>
-          <p>
-            <a href="/account/cancel-plan"><i class="fa fa-times"></i> Downgrade to free account</a>
-          </p>
+        <a href="/account/cancel-plan">
+          Cancel your Pro plan
+        </a>
         <% } %>
+        </div>
       </div>
     </div>
+    </main>
 
     <% include com/footer.html %>
     <% include com/stdjs.html %>

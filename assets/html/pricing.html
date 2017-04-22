@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Pricing - <%= appInfo.brandname %></title>
+    <% include com/stdhead.html %>
+  </head>
+  <body>
+    <% include com/nav.html %>
+
+    <main class="pricing">
+    <div class="container medium">
+
+      <div class="tiers">
+        <div class="tier free">
+          <div class="heading">
+            <div class="title">Free</div>
+          </div>
+
+          <ul class="features">
+            <li>Reliable rehosting</li>
+            <li>Archive history backup</li>
+            <li>100 MB storage</li>
+          </ul>
+
+          <a href="/register" class="btn signup transparent">
+            Sign up
+            <i class="fa fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="tier pro">
+          <div class="heading">
+            <div class="title">Pro</div>
+            <div class="price">$10/month</div>
+          </div>
+
+          <ul class="features">
+            <li>Reliable rehosting</li>
+            <li>Archive history backup</li>
+            <li><strong>HTTPS mirroring</strong></li>
+            <li><strong>DNS shortnames</strong></li>
+            <li><strong>1 TB storage</strong></li>
+          </ul>
+
+          <a href="/register" class="btn signup success">
+            Sign up for pro
+            <i class="fa fa-angle-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <% include com/features.html %>
+    </div>
+    </main>
+
+    <% include com/footer.html %>
+    <% include com/stdjs.html %>
+  </body>
+</html>

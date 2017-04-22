@@ -1,0 +1,115 @@
+main.home {
+  padding-top: 0;
+
+  .hero-container {
+    background: @color-text;
+
+    .nav {
+      &:extend(.text-shadow);
+      color: @color-text--white-transparent;
+
+      .nav-item:not(.register):hover {
+        &:extend(.rounded);
+        background: @color-bg--white-transparent;
+      }
+    }
+  }
+
+  .hero {
+    &:extend(.antialiased);
+    font-weight: 500;
+    padding: 1rem 0 3rem 0;
+
+    @media (min-width: @tablet-horizontal) {
+      padding: 2rem 0 4rem 0;
+    }
+
+    .tagline,
+    .blurb {
+      margin-bottom: 1.5rem;
+    }
+
+    .blurb {
+      margin-bottom: 2rem;
+
+      a {
+        &:extend(.link);
+      }
+    }
+
+    .intro .cta {
+      font-weight: 700;
+
+      .btn {
+        margin-right: 1rem;
+        font-weight: 700;
+
+        &:hover {
+          background: @color-bg--white-transparent;
+        }
+      }
+
+      .learn-more:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .pricing {
+      &:extend(.rounded);
+      background: @color-bg;
+      color: @color-text;
+      padding: 1rem;
+      margin-top: 2rem;
+
+      .price {
+        &:extend(.flex);
+        margin-bottom: 1rem;
+        padding-bottom: .25rem;
+        width: 100%;
+        justify-content: space-between;
+        border-bottom: 1px solid @color-border--light-gray;
+        font-weight: 700;
+
+        .cta {
+          font-weight: 500;
+
+          i {
+            margin-left: .25rem;
+          }
+
+          &:hover {
+
+            i {
+              transition: margin padding .3s ease;
+              margin-right: -.25rem;
+              padding-left: .25rem;
+            }
+          }
+        }
+
+        &.pro {
+          margin-top: 1rem;
+        }
+      }
+
+      .pro .features {
+        columns: 2;
+        -webkit-columns: 2;
+        -mox-columns: 2;
+      }
+
+      ul.features {
+        list-style-type: circle;
+        margin-left: 1.5rem;
+
+        li {
+          margin-left: 15px;
+        }
+      }
+    }
+  }
+
+  .highlighted-content {
+    padding: 2rem 0;
+  }
+}

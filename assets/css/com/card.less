@@ -1,0 +1,23 @@
+.card {
+  &:extend(.rounded-extra);
+  background: @color-bg--modal-form;
+  padding: 1rem;
+  border: 1px solid @color-border--light-gray;
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+
+  &.modal {
+    max-width: 400px;
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    a {
+      &:extend(.link);
+      color: @blue;
+    }
+  }
+}

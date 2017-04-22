@@ -5,12 +5,14 @@ const ejs = require('ejs')
 
 const Hashbase = require('./lib/index')
 
-module.exports = function ({cloud, config}) {
+module.exports = function ({ cloud, config }) {
   var app = express()
   var hashbase = new Hashbase(cloud)
 
   app.locals = {
     session: false, // default session value
+    sessionUser: false,
+    sessionAccount: false,
     errors: false, // common default value
     appInfo: {
       version: cloud.version,
@@ -45,6 +47,7 @@ module.exports = function ({cloud, config}) {
   app.get('/explore', hashbase.apis.pages.explore)
   app.get('/new-archive', hashbase.apis.pages.newArchive)
   app.get('/about', hashbase.apis.pages.about)
+  app.get('/pricing', hashbase.apis.pages.pricing)
   app.get('/terms', hashbase.apis.pages.terms)
   app.get('/privacy', hashbase.apis.pages.privacy)
   app.get('/support', hashbase.apis.pages.support)
@@ -113,7 +116,7 @@ module.exports = function ({cloud, config}) {
     if (contentType === 'json') {
       res.json(error)
     } else {
-      res.render('error', {error})
+      res.render('error', { error })
     }
   })
 
