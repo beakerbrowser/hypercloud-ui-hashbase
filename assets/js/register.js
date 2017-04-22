@@ -21,12 +21,12 @@ $(function () {
     })
 
     // post to api
-    var jqxhr = $.post('/v1/register', values)
-    jqxhr.done(function (res) {
+    var xhr = $.post('/v1/register', values)
+    xhr.done(function (res) {
       // success, redirect
       window.location = '/registered?email=' + escape(values.email)
     })
-    jqxhr.fail(function (res) {
+    xhr.fail(function (res) {
       // failure, render errors
       renderErrors(res.responseJSON)
     })

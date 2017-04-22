@@ -43,14 +43,14 @@ $(function () {
 
       // post to api
       var token = result.token
-      var jqxhr = $.post('/v1/hashbase-accounts/upgrade', {
+      var xhr = $.post('/v1/hashbase-accounts/upgrade', {
         token: token
       })
-      jqxhr.done(function (res) {
+      xhr.done(function (res) {
         // success, redirect
         window.location = '/account/upgraded'
       })
-      jqxhr.fail(function (res) {
+      xhr.fail(function (res) {
         // failure, render errors
         toggleSpinner(false)
         $('#card-errors').text(res.responseJSON && res.responseJSON.message || 'Internal server error. Please contact support.')

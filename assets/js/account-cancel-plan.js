@@ -9,12 +9,12 @@ $(function () {
     toggleSpinner(true)
 
     // post to api
-    var jqxhr = $.post('/v1/hashbase-accounts/cancel-plan')
-    jqxhr.done(function (res) {
+    var xhr = $.post('/v1/hashbase-accounts/cancel-plan')
+    xhr.done(function (res) {
       // success, redirect
       window.location = '/account/canceled-plan'
     })
-    jqxhr.fail(function (res) {
+    xhr.fail(function (res) {
       // failure, render errors
       toggleSpinner(false)
       $('#errors').text(res.responseJSON && res.responseJSON.message || 'Internal server error. Please contact support.')

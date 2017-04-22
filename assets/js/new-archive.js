@@ -48,12 +48,12 @@ $(function () {
     })
 
     // post to api
-    var jqxhr = $.post('/v1/archives/add', values)
-    jqxhr.done(function (res) {
+    var xhr = $.post('/v1/archives/add', values)
+    xhr.done(function (res) {
       // success, redirect
       window.location = '/user/' + window.params.username + '/' + addArchiveNameInput.val()
     })
-    jqxhr.fail(function (res) {
+    xhr.fail(function (res) {
       // failure, render errors
       renderErrors(res.responseJSON)
     })

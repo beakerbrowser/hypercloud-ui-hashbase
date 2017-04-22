@@ -12,12 +12,12 @@ $(function () {
     })
 
     // post to api
-    var jqxhr = $.post('/v1/account/password', values)
-    jqxhr.done(function (res) {
+    var xhr = $.post('/v1/account/password', values)
+    xhr.done(function (res) {
       // success, redirect to account page
       window.location = '/account?updated=1'
     })
-    jqxhr.fail(function (res) {
+    xhr.fail(function (res) {
       // failure, render errors
       renderErrors(res.responseJSON)
     })

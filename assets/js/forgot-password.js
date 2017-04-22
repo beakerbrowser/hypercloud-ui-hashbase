@@ -12,8 +12,8 @@ $(function () {
     })
 
     // post to api
-    var jqxhr = $.post('/v1/forgot-password', values)
-    jqxhr.done(function (res) {
+    var xhr = $.post('/v1/forgot-password', values)
+    xhr.done(function (res) {
       // success, tell user
       $('#success-msg').text('Check your email inbox for a reset link.')
     })
