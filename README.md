@@ -118,6 +118,7 @@ action. We place these actions in a `.actions` element like so:
   <a href="/account" class="alternate-link">Go back to your account</a>
   <button type="submit" class="btn primary">Upgrade</button>
 </div>
+```
 
 ### Alerts
 
