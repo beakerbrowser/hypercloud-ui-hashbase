@@ -19,28 +19,12 @@ $(function () {
     })
     jqxhr.fail(function (res) {
       // failure, render errors
-      renderErrors(res.responseJSON)
+      renderErrors(res.responseText)
     })
   })
 
-  function renderErrors (json) {
+  function renderErrors (message) {
     // general error
-    $('#error-general').text(json.message)
-
-    // individual form errors
-    var details = json.details || {}
-    ;(['username', 'password']).forEach(function (name) {
-      if (details[name]) {
-        $('#error-' + name)
-          .text(details[name].msg)
-          .parent()
-          .addClass('has-warning')
-      } else {
-        $('#error-' + name)
-          .text('')
-          .parent()
-          .removeClass('has-warning')
-      }
-    })
+    $('#error-general').text(message)
   }
 })

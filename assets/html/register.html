@@ -15,7 +15,7 @@
 
         <p class="form-group">
           <label for="input-username">Username</label>
-          <input autofocus type="text" name="username" class="form-control" id="input-username"/>
+          <input autofocus required type="text" name="username" class="form-control" id="input-username"/>
           <div id="error-username" class="form-control-feedback"></div>
           <div id="emailHelp" class="form-control-feedback">
             Your profile URL will be
@@ -25,13 +25,13 @@
 
         <p class="form-group">
           <label for="input-email">Email address</label>
-          <input type="text" name="email" class="form-control" id="input-email">
+          <input required type="email" name="email" class="form-control" id="input-email">
           <div id="error-email" class="form-control-feedback"></div>
         </p>
 
         <p class="form-group">
           <label for="input-password">Password</label>
-          <input type="password" name="password" class="form-control" id="input-password" />
+          <input required type="password" name="password" class="form-control" id="input-password" />
           <div id="error-password" class="form-control-feedback"></div>
           <span class="form-control-feedback">
             Must be at least 6 characters long.
