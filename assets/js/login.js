@@ -19,12 +19,12 @@ $(function () {
     })
     xhr.fail(function (res) {
       // failure, render errors
-      renderErrors(res.responseText)
+      renderErrors(JSON.parse(res.responseText))
     })
   })
 
-  function renderErrors (message) {
+  function renderErrors (json) {
     // general error
-    $('#error-general').text(message)
+    $('#error-general').text(json.message)
   }
 })
