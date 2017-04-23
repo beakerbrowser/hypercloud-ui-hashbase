@@ -1,6 +1,6 @@
 /* global $ */
 
-// register page js
+// nav js
 $(function () {
   var dropdownMenu = $('.nav .dropdown-menu')
   var dropdownMenuToggle = $('.nav .dropdown-menu-link')
