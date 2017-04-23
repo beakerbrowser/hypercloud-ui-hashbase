@@ -7,34 +7,38 @@
   <body>
     <% include com/nav.html %>
 
-    <div class="container pt-4 pb-5">
-      <div class="row">
-        <div class="col">
-          <h4 class="diplay-4"><a href="."><%= username %></a> / <a href=""><%= archivename %></a></h4>
-        </div>
-        <div class="col col-md-auto">
-          <% if (isOwner) { %>
-            <a href="#" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#delete-modal">Delete</a>
-          <% } %>
+    <main class="archive">
+    <div class="container">
+      <h1>
+        <a href="/<%= username %>"><%= username %></a> / <%= archivename %>
+        <% if (isOwner) { %>
+          <button class="btn outline">
+            Remove
+            <i class="fa fa-close"></i>
+          </button>
+        <% } %>
+      </h1>
+
+      <div class="section">
+        <div class="progress-bar-container">
+          <span class="label">Upload progress (<%= progress %>%)</span>
+          <div
+            class="progress-bar"
+            role="progressbar"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="<%= progress %>"></div>
         </div>
       </div>
-      <div class="text-muted">
-        <div class="progress">
-          <div class="progress-bar" role="progressbar" style="width: <%= progress %>%" aria-valuenow="<%= progress %>" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-        <small>Upload Progress: <%= progress %>% (refresh page to check latest)</small>
-      </div>
-      <table class="table mt-2">
-        <tbody>
-          <tr>
-            <td><a href="<%= niceUrl %>" title="<%= niceUrl %>"><%= niceUrl %></a></td>
-          </tr>
-          <tr>
-            <td><a href="<%= rawUrl %>" title="<%= rawUrl %>"><%= rawUrl %></a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+
+      <div class="section">
+        <h2>Archive links</h2>
+        <p>
+          <a href="<%= rawUrl %>" title="<%= rawUrl %>"><%= rawUrl %></a>
+        </p>
+        <p>
+          <a href="<%= niceUrl %>" title="<%= niceUrl %>"><%= niceUrl %></a>
+        </p>
 
     <div class="modal" id="delete-modal">
       <div class="modal-dialog" role="document">
