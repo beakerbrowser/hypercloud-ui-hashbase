@@ -11,7 +11,7 @@ $(function () {
     usernameOutput.text(usernameInput.val() || 'username')
   }
 
-  $('.form-register').on('submit', function (e) {
+  $('#register').on('submit', function (e) {
     e.preventDefault()
 
     // serialize form values
@@ -28,7 +28,7 @@ $(function () {
     })
     xhr.fail(function (res) {
       // failure, render errors
-      renderErrors(res.responseJSON)
+      renderErrors(JSON.parse(res.responseText))
     })
   })
 
@@ -43,12 +43,12 @@ $(function () {
         $('#error-' + name)
           .text(details[name].msg)
           .parent()
-          .addClass('has-warning')
+          .addClass('warning')
       } else {
         $('#error-' + name)
           .text('')
           .parent()
-          .removeClass('has-warning')
+          .removeClass('warning')
       }
     })
   }

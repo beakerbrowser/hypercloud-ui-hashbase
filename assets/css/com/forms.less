@@ -45,6 +45,18 @@
 
 .form-group {
   margin: 1rem 0;
+
+  &.warning {
+
+    input,
+    textarea {
+      border: 1px solid mix(@color-text, @pink, 25%);
+    }
+
+    .form-control-feedback {
+      color: mix(@color-text, @pink, 25%);
+    }
+  }
 }
 
 .form-control-feedback {

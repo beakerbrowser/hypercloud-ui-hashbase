@@ -9,32 +9,32 @@
 
     <main>
     <div class="container">
-      <form class="form modal-form register" action="/v1/register" method="POST">
+      <form id="register" class="form modal-form" action="/v1/register" method="POST">
         <h1 class="heading">Join <%= appInfo.brandname %></h1>
-        <div id="error-general" class="alert alert-warning" role="alert"></div>
+        <div id="error-general" class="alert warning" role="alert"></div>
 
         <p class="form-group">
           <label for="input-username">Username</label>
           <input autofocus required type="text" name="username" class="form-control" id="input-username"/>
-          <div id="error-username" class="form-control-feedback"></div>
-          <div id="emailHelp" class="form-control-feedback">
+          <span id="error-username" class="form-control-feedback"></span>
+          <span id="emailHelp" class="form-control-feedback">
             Your profile URL will be
             <span id="output-username">username</span><span>.<%= appInfo.hostname %></span>
-          </div>
+          </span>
         </p>
 
         <p class="form-group">
           <label for="input-email">Email address</label>
-          <input required type="email" name="email" class="form-control" id="input-email">
-          <div id="error-email" class="form-control-feedback"></div>
+          <input required type="email" name="email" class="form-control"
+          id="input-email" />
+          <span id="error-email" class="form-control-feedback"></span>
         </p>
 
         <p class="form-group">
           <label for="input-password">Password</label>
           <input required type="password" name="password" class="form-control" id="input-password" />
-          <div id="error-password" class="form-control-feedback"></div>
-          <span class="form-control-feedback">
-            Must be at least 6 characters long.
+          <span id="error-password" class="form-control-feedback">
+            Must be at least 6 characters
           </span>
         </p>
 
