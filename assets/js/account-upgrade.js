@@ -10,7 +10,6 @@ $(function () {
       color: '#32325d',
       lineHeight: '24px',
       fontFamily: 'Helvetica Neue',
-      fontSmoothing: 'antialiased',
       fontSize: '16px',
       '::placeholder': {
         color: '#aab7c4'
