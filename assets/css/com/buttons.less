@@ -80,4 +80,15 @@ button.btn {
     background: none;
     border: 1px solid;
   }
+
+  &[disabled] {
+    color: fadeout(@color-text, 50%);
+    background: none;
+    border: 1px solid @color-border--light-gray;
+    cursor: default;
+
+    &:hover {
+      background: none;
+    }
+  }
 }
