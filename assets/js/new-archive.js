@@ -38,7 +38,7 @@ $(function () {
     addArchiveForm.submit()
   })
 
-  $('#add-archive-form').on('submit', function (e) {
+  addArchiveForm.on('submit', function (e) {
     e.preventDefault()
 
     // serialize form values
@@ -55,7 +55,7 @@ $(function () {
     })
     xhr.fail(function (res) {
       // failure, render errors
-      renderErrors(res.responseJSON)
+      renderErrors(JSON.parse(res.responseText))
     })
   })
 
@@ -67,7 +67,7 @@ $(function () {
         $('#add-archive-' + name + '-error')
           .text(details[name].msg)
           .parent()
-          .addClass('has-warning')
+          .addClass('warning')
       } else {
         $('#add-archive-' + name + '-error')
           .text('')
