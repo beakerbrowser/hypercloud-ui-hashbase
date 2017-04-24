@@ -1,12 +1,13 @@
 <% activity.forEach(event => { %>
-  <div class="thin">
+  <div>
     <a href="/<%= event.username %>"><%= event.username %></a>
     <% if (event.action === 'add-archive') { %>added<% } %>
     <% if (event.action === 'del-archive') { %>removed<% } %>
     <a href="dat://<%= event.params.key %>/"><%= event.params.name || event.params.key.slice(0, 8) %></a>
-    <small class="text-muted"><%= nicedate(event.ts) %> ago</small>
+    <span><%= nicedate(event.ts) %> ago</span>
   </div>
 <% }) %>
 <% if (activity.length >= activityLimit) { %>
-  <a href="/explore?view=activity&start=<%= activity[activityLimit-1].key %>" class="btn btn-secondary btn-block mt-4">Load more</a>
+  <a href="/explore?view=activity&start=<%= activity[activityLimit-1].key %>"
+     class="btn outline">Load more</a>
 <% } %>
