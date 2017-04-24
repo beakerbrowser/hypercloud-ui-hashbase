@@ -9,13 +9,18 @@
 
     <main class="archive">
     <div class="container">
+      <p id="error-general" class="alert warning"></p>
+
       <h1>
         <a href="/<%= username %>"><%= username %></a> / <%= archivename %>
         <% if (isOwner) { %>
-          <button class="btn outline">
-            Remove
-            <i class="fa fa-close"></i>
-          </button>
+          <form id="remove-archive-form" action="/v1/archives/remove" method="POST">
+            <input name="key" type="hidden" value="<%= key %>"/>
+            <button type="submit" id="remove-archive-btn" class="btn outline">
+              Remove
+              <i class="fa fa-close"></i>
+            </button>
+          </form>
         <% } %>
       </h1>
 
@@ -64,5 +69,6 @@
 
     <% include com/footer.html %>
     <% include com/stdjs.html %>
+    <script src="/assets/js/archive.js"></script>
   </body>
 </html>
