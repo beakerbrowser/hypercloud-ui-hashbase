@@ -15,7 +15,7 @@ $(function () {
     var xhr = $.post('/v1/login', values)
     xhr.done(function (res) {
       // success, redirect
-      window.location = '/' + redirect
+      window.location = '/'
     })
     xhr.fail(function (res) {
       // failure, render errors
