@@ -8,7 +8,7 @@
       <li class="nav-item">
         <a href="/about">About</a>
       </li>
-      <% if (session) { %>
+      <% if (sessionUser) { %>
         <li class="nav-item">
           <div class="dropdown-menu-link">
             <span>Hi, <%= sessionUser.username %></span>
