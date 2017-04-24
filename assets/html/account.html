@@ -50,10 +50,10 @@
         <a href="/account/change-password">Change password</a>
 
         <% if (sessionAccount.plan === 'basic') { %>
-        <button class="btn outline">
+        <a href="/account/upgrade" class="btn outline">
           <span>Upgrade</span>
           <span class="pro-tag">Pro</span>
-        </button>
+        </a>
         <% } else { %>
         <a href="/account/cancel-plan">
           Cancel your Pro plan
