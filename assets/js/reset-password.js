@@ -24,7 +24,11 @@ $(function () {
     })
     xhr.fail(function (res) {
       // failure, render errors
-      renderErrors(res.responseJSON)
+      try {
+        renderErrors(JSON.parse(res.responseText))
+      } catch (e) {
+        renderErrors(res.responseText)
+      }
     })
   })
 
