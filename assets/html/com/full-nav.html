@@ -10,19 +10,20 @@
       </li>
       <% if (session) { %>
         <li class="nav-item">
-          <a class="dropdown-menu-link">Hi, <%= sessionUser.username %></a>
+          <div class="dropdown-menu-link">
+            <span>Hi, <%= sessionUser.username %></span>
             <i class="fa fa-caret-down"></i>
-          </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="/profile">View profile</a>
-            <a class="dropdown-item" href="/account">Manage account</a>
-            <a class="dropdown-item" href="/account/upgrade">
-              Upgrade to pro
-              <span class="pro-tag">pro</span>
-            </a>
-            <a class="dropdown-item" href="/v1/logout">Logout</a>
-            <hr>
-            <a class="dropdown-item" href="/new-archive">New archive</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/profile">View profile</a>
+              <a class="dropdown-item" href="/account">Manage account</a>
+              <a class="dropdown-item" href="/account/upgrade">
+                <span>Upgrade to pro</span>
+                <span class="pro-tag">pro</span>
+              </a>
+              <a class="dropdown-item" href="/v1/logout">Logout</a>
+              <hr>
+              <a class="dropdown-item" href="/new-archive">New archive</a>
+            </div>
           </div>
         </li>
       <% } else { %>
