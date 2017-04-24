@@ -67,7 +67,11 @@ button.btn {
 
   &.transparent {
     background: none;
-    border: 1px solid @color-border--transparent-btn;
+    border: 1px solid @color-border--light-gray;
+
+    &:hover {
+      border-color: @color-border--gray;
+    }
   }
 
   &.opaque {
