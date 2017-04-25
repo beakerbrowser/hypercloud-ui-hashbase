@@ -13,15 +13,6 @@
 
       <h1>
         <a href="/<%= username %>"><%= username %></a> / <%= archivename %>
-        <% if (isOwner) { %>
-          <form id="remove-archive-form" action="/v1/archives/remove" method="POST">
-            <input name="key" type="hidden" value="<%= key %>"/>
-            <button type="submit" id="remove-archive-btn" class="btn outline">
-              Remove
-              <i class="fa fa-close"></i>
-            </button>
-          </form>
-        <% } %>
       </h1>
 
       <div class="section">
@@ -44,27 +35,20 @@
         <p>
           <a href="<%= niceUrl %>" title="<%= niceUrl %>"><%= niceUrl %></a>
         </p>
-
-    <div class="modal" id="delete-modal">
-      <div class="modal-dialog" role="document">
-        <form class="modal-content" action="/v1/archives/remove" method="POST">
-          <input type="hidden" name="key" value="<%= key %>">
-          <div class="modal-header">
-            <h5 class="modal-title">Remove Dat</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <p>Remove this archive from <%= appInfo.brandname %>?</p>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Remove</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          </div>
-        </div>
       </div>
-    </div>
+      <% if (isOwner) { %>
+        <button id="show-remove-archive-form" class="link">Remove archive</button>
+        <form id="remove-archive-form" action="/v1/archives/remove" method="POST">
+          <input name="key" type="hidden" value="<%= key %>"/>
+          <button id="cancel-remove-archive" class="btn outline">
+            Cancel
+          </button>
+          <button type="submit" id="remove-archive-btn" class="btn cancel">
+            Remove
+            <i class="fa fa-close"></i>
+          </button>
+        </form>
+      <% } %>
     </main>
 
     <% include com/footer.html %>

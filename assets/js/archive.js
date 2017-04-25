@@ -2,7 +2,17 @@
 
 // archive page js
 $(function () {
-  $('#remove-archive-form').on('submit', function (e) {
+  var removeForm = $('#remove-archive-form')
+
+  $('#show-remove-archive-form').on('click', function () {
+    removeForm.addClass('open')
+  })
+
+  $('#cancel-remove-archive').on('click', function () {
+    removeForm.removeClass('open')
+  })
+
+  removeForm.on('submit', function (e) {
     e.preventDefault()
 
     // serialize form values
@@ -11,12 +21,12 @@ $(function () {
       values[value.name] = value.value
     })
 
-    console.log(values)
-
     // post to api
     var xhr = $.post('/v1/archives/remove', values)
     xhr.done(function (res) {
       // success, redirect
+      window.location = '/profile'
+    })
 
     xhr.fail(function (res) {
       // failure, render errors
