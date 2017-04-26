@@ -1,11 +1,9 @@
 <ul class="archive-list popular-content">
   <% popular.forEach(archive => { %>
     <li class="archive">
-      <span class="name">
-        <a href="/<%= archive.username %>"><%= archive.username %></a>
-        /
-        <a href="/<%= archive.name %>"><%= archive.name %></a>
-      </span>
+      <a href="/<%= archive.username %>/<%= archive.name %>" class="name">
+        <%= archive.username %>/<%= archive.name %>
+      </a>
 
       <a href="dat:// <%= archive.key %>" class="dat-link">
         dat://<%= archive.key %>
