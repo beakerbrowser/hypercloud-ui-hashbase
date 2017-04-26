@@ -112,6 +112,102 @@ main.home {
   }
 
   .highlighted-content {
-    padding: 2rem 0;
+    vertical-align: top;
+    padding: 3rem 0;
+
+    .popular h2 {
+      margin-top: 0;
+    }
+
+    .popular, .sidebar {
+      width: 100%;
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .sidebar {
+
+      h2 {
+        font-size: .9rem;
+        margin-top: 0;
+      }
+
+      .your-archives,
+      .activity {
+        border-radius: 3px; // TODO: why the f isn't &:extend(.rounded) working?
+        background: @color-bg--modal-form;
+        border: 1px solid @color-border--light-gray;
+      }
+
+      .activity {
+        margin-top: 1rem;
+        padding: 1rem;
+
+        .event .time {
+          float: right;
+          color: @color-text--light;
+        }
+      }
+
+      .your-archives {
+        border-radius: 3px; // TODO: why the f isn't &:extend(.rounded) working?
+        background: @color-bg--modal-form;
+        border: 1px solid @color-border--light-gray;
+
+        .archive {
+          display: block;
+          padding: .25rem 1rem;
+          font-size: .85rem;
+
+          &:not(:last-child) {
+            border-bottom: 1px solid @color-border--light-gray;
+          }
+
+          &:hover {
+            background: @color-bg--light-blue;
+          }
+
+          .name {
+            color: @blue;
+            font-weight: 500;
+          }
+
+          .peer-count {
+            float: right;
+          }
+        }
+
+        .heading {
+          display: flex; // TODO: why isn't &:extend isn't working
+          align-items: center;
+          justify-content: space-between;
+          padding: .25rem 1rem;
+          border-bottom: 1px solid @color-border--light-gray;
+          font-size: .9rem;
+
+          h2 {
+            display: inline-block;
+            margin-bottom: 0;
+          }
+        }
+
+        .no-archives {
+          font-size: .85rem;
+        }
+      }
+    }
+
+    @media (min-width: @tablet-horizontal) {
+      
+      .popular {
+        width: 60%;
+        margin-right: 4rem;
+      }
+
+      .sidebar {
+        width: 30%;
+        margin-top: 47px;
+      }
+    }
   }
 }

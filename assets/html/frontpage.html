@@ -24,20 +24,53 @@
 
     <div class="highlighted-content">
       <div class="container">
-        <h2>Popular right now</h2>
-        <% include com/popular-content.html %>
-
-        <% if (sessionUser) { %>
-        <div class="yours">
-          <h2>Your activity</h2>
-          <% include com/activity.html %>
-          <% sessionUser.archives.forEach(a => { %>
-          <a href="/<%= sessionUser.username %>/<%= a.name || a.key %>">
-            <%= a.name || a.key %>
-          </a>
-          <% }) %>
+        <div class="popular">
+          <h2>Popular right now</h2>
+          <% include com/popular-content.html %>
         </div>
-        <% } %>
+
+        <div class="sidebar">
+          <% if (session && sessionUser) { %>
+            <div class="your-archives">
+              <div class="heading">
+                <h2>Your archives</h2>
+                <a href="/new-archive" class="btn small success">
+                  New archive
+                </a>
+              </div>
+
+              <% if (!sessionUser.archives.length) { %>
+                <span class="no-archives">
+                  You haven't uploaded any archives.
+                </span>
+              <% } %>
+
+              <ul class="archives">
+                <% sessionUser.archives.forEach(archive => { %>
+                  <a class="archive" href="/<%= sessionUser.username%>/<%= archive.name %>">
+                    <span class="name">
+                      <%= archive.name %>
+                    </span>
+                    <span class="peer-count">
+                      <i class="fa fa-share-alt"></i>
+                      3
+                    </span>
+                  </a>
+                <% }) %>
+              </ul>
+              <% if (sessionUser.archives.length > 10) { %>
+                <a href="/<%= sessionUser.username %>">
+                  View <%= sessionUser.archives.length - 10 %> more archives...
+                </a>
+              <% } %>
+            </div>
+          <% } %>
+
+          <div class="activity">
+            <h2>Recent activity</h2>
+            <% include com/activity.html %>
+          </div>
+        </div>
       </div>
     </div>
     </main>

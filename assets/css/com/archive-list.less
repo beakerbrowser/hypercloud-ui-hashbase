@@ -1,0 +1,40 @@
+.archive-list {
+  &:extend(.rounded);
+  border: 1px solid @color-border--light-gray;
+  background: @color-bg--modal-form;
+
+  li {
+    position: relative;
+    padding: .5rem 1rem;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid @color-border--light-gray;
+    }
+
+    &:hover {
+      background: @color-bg--light-blue;
+    }
+  }
+
+  .name {
+    font-weight: 700;
+
+    &:hover {
+      &:extend(.link);
+    }
+  }
+
+  .dat-link {
+    &:extend(.overflow-ellipsis);
+    display: block;
+    color: @blue;
+    color: @color-text--light;
+    font-size: .85rem;
+  }
+
+  .peer-count {
+    position: absolute;
+    top: .5rem;
+    right: 1rem;
+  }
+}

@@ -16,12 +16,13 @@
   text-shadow: fadeout(black, 85%) 1px 1px 1px;
 }
 
-.hero-gradient {
-  //background: linear-gradient(350deg, @teal 3%, @blue 50%, @purple 85%);
-  background: url(/assets/images/lines.svg), linear-gradient(to right, #7b4397 10%, #dc2430 90%);
-}
-
 .flex {
   display: flex;
   flex-wrap: wrap;
+}
+
+.overflow-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

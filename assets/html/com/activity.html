@@ -2,15 +2,23 @@
 
 <ul>
 <% activity.forEach(event => { %>
+  <% if (event.action === 'add-archive') { %>
   <li class="event">
     <a class="username" href="/<%= event.username %>"><%= event.username %></a>
-    <span class="action">
-      <% if (event.action === 'add-archive') { %>added<% } %>
-      <% if (event.action === 'del-archive') { %>removed<% } %>
-      <a class="name" href="dat://<%= event.params.key %>/"><%= event.params.name || event.params.key.slice(0, 8) %></a>
+      <span class="action">
+        added
+        <a class="name" href="dat://<%= event.params.key %>/"><%= event.params.name || event.params.key.slice(0, 8) %></a>
+      </span>
+    </a>
+
+    <span class="time">
+      <%= nicedate(event.ts) %>
+      <% if (nicedate(event.ts) !== 'yesterday') { %>
+        <span> ago</span>
+      <% } %>
     </span>
-    <span class="time"><%= nicedate(event.ts) %> ago</span>
   </li>
+  <% } %>
 <% }) %>
 </ul>
 
