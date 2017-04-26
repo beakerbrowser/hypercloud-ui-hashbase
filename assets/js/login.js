@@ -2,6 +2,9 @@
 
 // login page js
 $(function () {
+  var queryParams = new URLSearchParams(location.search)
+  var redirect = queryParams.get('redirect') || ''
+
   $('.form-login').on('submit', function (e) {
     e.preventDefault()
 
@@ -15,7 +18,7 @@ $(function () {
     var xhr = $.post('/v1/login', values)
     xhr.done(function (res) {
       // success, redirect
-      window.location = '/'
+      window.location = '/' + redirect
     })
     xhr.fail(function (res) {
       // failure, render errors
