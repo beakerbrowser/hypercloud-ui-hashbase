@@ -10,8 +10,55 @@
     <main class="about">
     <div class="container">
       <h1>About Hashbase</h1>
+      <nav class="subnav">
+        <a href="#overview">Overview</a>
+        <a href="#features">Features</a>
+        <a href="#team">Team</a>
+      </nav>
 
-      <% include com/features.html %>
+      <div class="section features">
+        <% include com/features.html %>
+      </div>
+      
+      <div class="section team">
+      <h2 id="team">Team</h2>
+      <div class="member">
+        <img src="/assets/images/paul.jpg" />
+        <h3 class="title">Paul Frazee, co-founder</h3>
+        <div class="links">
+          <a href="https://twitter.com/pfrazee">
+            <i class="fa fa-twitter"></i>
+          </a>
+          <a href="https://github.com/pfrazee">
+            <i class="fa fa-github"></i>
+          </a>
+          <a href="https://pfrazee.github.io">
+            <i class="fa fa-link"></i>
+          </a>
+        </div>
+      </div>
+      <div class="member">
+        <img src="/assets/images/tara.jpg" />
+        <h3 class="title">Tara Vancil, co-founder</h3>
+        <div class="links">
+          <a href="https://twitter.com/taravancil">
+            <i class="fa fa-twitter"></i>
+          </a>
+          <a href="https://github.com/taravancil">
+            <i class="fa fa-github"></i>
+          </a>
+          <a href="https://taravancil.com">
+            <i class="fa fa-link"></i>
+          </a>
+        </div>
+      </div>
+
+      <p class="dat">
+        We also partner closely with the <a href="https://datproject.org">
+        Dat Project</a>. Hashbase would not be possible without their hard
+        work and innovation.
+      </p>
+    </div>
     </div>
 
     </main>

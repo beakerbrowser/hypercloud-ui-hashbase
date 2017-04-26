@@ -1,0 +1,36 @@
+main.about {
+
+  .team .member {
+    display: inline-block;
+    text-align: center;
+    margin-right: 3rem;
+
+    img {
+      &:extend(.rounded);
+      width: 125px;
+      height: 125px;
+      border: 1px solid @color-border--gray;
+    }
+
+    .title {
+      margin: .5rem 0;
+    }
+
+    .links {
+      &:extend(.flex);
+      justify-content: space-between;
+      margin: auto;
+      max-width: 85px;
+      color: @blue;
+      font-size: 1.2rem;
+    }
+  }
+
+  .team .dat {
+    margin-top: 2rem;
+
+    a {
+      &:extend(.link);
+    }
+  }
+}
