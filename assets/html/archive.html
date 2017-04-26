@@ -28,11 +28,21 @@
         </div>
       </div>
 
-      <div class="section">
+      <div class="section links">
         <h2>Archive links</h2>
         <ul>
-          <li><a href="<%= rawUrl %>" title="<%= rawUrl %>"><%= rawUrl %></a></li>
-          <li><a href="<%= niceUrl %>" title="<%= niceUrl %>"><%= niceUrl %></a></li>
+          <li>
+            <%= rawUrl %>
+            <a href="<%= rawUrl %>" title="<%= rawUrl %>">
+              <i class="fa fa-external-link"></i>
+            </a>
+          </li>
+          <li>
+            <%= niceUrl %>
+            <a href="<%= niceUrl %>" title="<%= niceUrl %>">
+              <i class="fa fa-external-link"></i>
+            </a>
+          </li>
         </ul>
       </div>
       <% if (isOwner) { %>
