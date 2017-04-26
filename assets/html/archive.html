@@ -18,7 +18,12 @@
 
       <div class="section">
         <div class="progress-bar-container">
-          <span class="label">Upload progress (<%= progress %>%)</span>
+          <span class="label">
+            Upload progress (<%= progress %>%)
+            <% if (progress < 100) { %>
+              <i class="fa fa-spinner fa-spin"></i>
+            <% } %>
+          </span>
           <div
             class="progress-bar"
             role="progressbar"
