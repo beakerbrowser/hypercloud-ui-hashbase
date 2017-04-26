@@ -1,29 +1,33 @@
 main {
   padding: 2rem 0 3rem 0;
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 1rem;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 1.5rem;
+  }
+
   .section {
     margin-bottom: 3rem;
+
+    p {
+      max-width: 600px;
+      margin: 1rem 0;
+    }
+
+    a {
+      &:extend(.link);
+    }
   }
-}
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-bottom: 1rem;
-}
-
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-top: 1.5rem;
-}
-
-p {
-  max-width: 600px;
 }
