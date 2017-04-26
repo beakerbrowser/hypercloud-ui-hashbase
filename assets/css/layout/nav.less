@@ -12,6 +12,7 @@
   .container {
     &:extend(.flex);
     flex-wrap: nowrap;
+    align-items: center;
   }
 
   .dropdown-menu {
@@ -44,12 +45,15 @@
   background: none;
   border: none;
   font-size: 1.3rem;
+  margin-left: auto;
   float: right;
 }
 
 .mobile-nav-links {
+  &:extend(.flex);
   padding-top: .75rem;
   padding-bottom: .75rem;
+  align-items: center;
 }
 
 .mobile-nav {
@@ -88,7 +92,7 @@
 
   .mobile-nav,
   .mobile-nav-links {
-    display: none;
+    display: none !important;
   }
 
   .nav {

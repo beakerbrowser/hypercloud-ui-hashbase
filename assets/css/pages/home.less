@@ -1,20 +1,23 @@
 main.home {
   padding-top: 0;
 
+ .nav,
+ .mobile-nav-links,
+ .mobile-nav-links .mobile-nav-toggle i {
+   &:extend(.text-shadow);
+   color: @color-text--white-transparent;
+
+  .nav-item:not(.register):hover {
+     &:extend(.rounded);
+       background: @color-bg--white-transparent;
+       overflow: initial !important; // .rounded has overflow: hidden which messes up dropdown
+     }
+  }
+ 
+  .nav,
+  .mobile-nav-links,
   .hero-container {
     background: @color-text;
-
-    .nav,
-    .mobile-nav-links,
-    .mobile-nav-links .mobile-nav-toggle i {
-      &:extend(.text-shadow);
-      color: @color-text--white-transparent;
-
-      .nav-item:not(.register):hover {
-        &:extend(.rounded);
-        background: @color-bg--white-transparent;
-      }
-    }
   }
 
   .hero {
