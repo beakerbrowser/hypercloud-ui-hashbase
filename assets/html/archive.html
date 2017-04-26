@@ -11,8 +11,9 @@
     <div class="container">
       <p id="error-general" class="alert warning"></p>
 
-      <h1>
-        <a href="/<%= username %>"><%= username %></a> / <%= archivename %>
+      <h1 class="breadcrumbs">
+        <a href="/<%= username %>"><%= username %></a>
+        <span><%= archivename %></span>
       </h1>
 
       <div class="section">
@@ -29,12 +30,10 @@
 
       <div class="section">
         <h2>Archive links</h2>
-        <p>
-          <a href="<%= rawUrl %>" title="<%= rawUrl %>"><%= rawUrl %></a>
-        </p>
-        <p>
-          <a href="<%= niceUrl %>" title="<%= niceUrl %>"><%= niceUrl %></a>
-        </p>
+        <ul>
+          <li><a href="<%= rawUrl %>" title="<%= rawUrl %>"><%= rawUrl %></a></li>
+          <li><a href="<%= niceUrl %>" title="<%= niceUrl %>"><%= niceUrl %></a></li>
+        </ul>
       </div>
       <% if (isOwner) { %>
         <button id="show-remove-archive-form" class="link">Remove archive</button>
