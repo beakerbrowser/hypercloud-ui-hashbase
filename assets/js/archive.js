@@ -8,7 +8,8 @@ $(function () {
     removeForm.addClass('open')
   })
 
-  $('#cancel-remove-archive').on('click', function () {
+  $('#cancel-remove-archive').on('click', function (e) {
+    e.preventDefault()
     removeForm.removeClass('open')
   })
 
