@@ -7,8 +7,19 @@ $(function () {
   var mobileNav = $('.mobile-nav')
   var mobileNavToggle = $('.mobile-nav-toggle')
 
-  dropdownMenuToggle.click(function () {
+  function toggleMenu () {
     dropdownMenu.toggleClass('open')
+
+    if (dropdownMenu.hasClass('open')) {
+      $(document.body).on('click', toggleMenu)
+    } else {
+      $(document.body).off('click', toggleMenu)
+    }
+  }
+
+  dropdownMenuToggle.click(function (e) {
+    e.stopPropagation()
+    toggleMenu()
   })
 
   mobileNavToggle.click(function () {
