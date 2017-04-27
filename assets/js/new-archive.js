@@ -78,7 +78,6 @@ $(function () {
   })
 
   function renderErrors (json) {
-    console.log(json)
     // individual form errors
     var details = json.details || {}
     ;(['key', 'name']).forEach(function (name) {
