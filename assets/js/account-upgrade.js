@@ -29,7 +29,7 @@ $(function () {
   })
 
   // form submit
-  $('.form-account-upgrade').on('submit', function (e) {
+  $('#form-account-upgrade').on('submit', function (e) {
     e.preventDefault()
 
     toggleSpinner(true)
