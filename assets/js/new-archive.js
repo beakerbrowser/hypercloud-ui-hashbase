@@ -65,7 +65,7 @@ $(function () {
     var xhr = $.post('/v1/archives/add', values)
     xhr.done(function (res) {
       // success, redirect
-      window.location = '/user/' + window.params.username + '/' + addArchiveNameInput.val()
+      window.location = '/' + window.params.username + '/' + addArchiveNameInput.val()
     })
     xhr.fail(function (res) {
       // failure, render errors
