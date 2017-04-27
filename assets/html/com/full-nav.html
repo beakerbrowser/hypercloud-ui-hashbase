@@ -16,10 +16,12 @@
             <div class="dropdown-menu">
               <a class="dropdown-item" href="/profile">View profile</a>
               <a class="dropdown-item" href="/account">Manage account</a>
-              <a class="dropdown-item" href="/account/upgrade">
-                <span>Upgrade to pro</span>
-                <span class="pro-tag">pro</span>
-              </a>
+              <% if (sessionAccount.plan === 'basic') { %>
+                <a class="dropdown-item" href="/account/upgrade">
+                  <span>Upgrade to pro</span>
+                  <span class="pro-tag">pro</span>
+                </a>
+              <% } %>
               <a class="dropdown-item" href="/v1/logout">Logout</a>
               <hr>
               <a class="dropdown-item" href="/new-archive">New archive</a>

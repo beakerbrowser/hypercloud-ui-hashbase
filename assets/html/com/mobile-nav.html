@@ -22,12 +22,14 @@
         <li class="nav-item">
           <a href="/account">Manage account</a>
         </li>
-        <li class="nav-item">
-          <a href="/account/upgrade">
-            Upgrade to pro
-            <span class="pro-tag">pro</span>
-          </a>
-        </li>
+        <% if (sessionAccount.plan === 'basic') { %>
+          <li class="nav-item">
+            <a href="/account/upgrade">
+              Upgrade to pro
+              <span class="pro-tag">pro</span>
+            </a>
+          </li>
+        <% } %>
         <li class="nav-item">
           <a href="/v1/logout">Logout</a>
         </li>
