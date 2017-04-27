@@ -15,12 +15,16 @@
         </p>
       <% } %>
 
-      <h1>
-        Hi, <a class="username-link" href="/<%= sessionUser.username %>"><%= sessionUser.username %></a>
-      </h1>
+      <h1>Account settings</h1>
+
+      <nav class="subnav">
+        <a href="#storage">Storage</a>
+        <a href="#password">Password</a>
+        <a href="#plan">Plan</a>
+      </nav>
 
       <div class="section usage">
-        <h2>Storage</h2>
+        <h2 id="storage">Storage</h2>
         <div class="progress-bar-container">
           <span class="label">75/100 MB</span>
           <div class="progress-bar"
@@ -43,11 +47,16 @@
         </p>
       </div>
 
-      <div class="section settings">
-        <h2>Account settings</h2>
+      <div class="section password">
+        <h2 id="password">Password</h2>
 
         <div class="actions">
         <a href="/account/change-password">Change password</a>
+        </div>
+      </div>
+
+      <div class="section plan">
+        <h2 id="plan">Plan</h2>
 
         <% if (sessionAccount.plan === 'basic') { %>
         <p>You are signed up for Hashbase's free account.
