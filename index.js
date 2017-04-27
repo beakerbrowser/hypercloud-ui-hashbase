@@ -68,6 +68,7 @@ module.exports = function ({ cloud, config }) {
   // =
 
   app.post('/v1/hashbase-accounts/upgrade', hashbase.apis.accounts.upgrade)
+  app.post('/v1/hashbase-accounts/update-card', hashbase.apis.accounts.updateCard)
   app.post('/v1/hashbase-accounts/cancel-plan', hashbase.apis.accounts.cancelPlan)
 
   // user pages

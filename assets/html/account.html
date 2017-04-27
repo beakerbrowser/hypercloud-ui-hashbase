@@ -50,21 +50,62 @@
         <a href="/account/change-password">Change password</a>
 
         <% if (sessionAccount.plan === 'basic') { %>
-        <a href="/account/upgrade" class="btn outline">
-          <span>Upgrade</span>
-          <span class="pro-tag">Pro</span>
-        </a>
+        <p>You are signed up for Hashbase's free account.
+          <a href="/account/upgrade" class="btn outline">
+            <span>Upgrade</span>
+            <span class="pro-tag">Pro</span>
+          </a>
+        </p>
         <% } else { %>
-        <a href="/account/cancel-plan">
-          Cancel your Pro plan
-        </a>
+        <p>You are signed up for Hashbase Pro.
+          <a href="/account/cancel-plan">
+            Downgrade to a free plan
+          </a>
+        </p>
         <% } %>
-        </div>
+
+        <p id="billing-alert-success" class="alert success"></p>
+        <% if (sessionAccount.stripeCardLast4) { %>
+          <h3>Payment information</h3>
+          <p class="active-card">
+            <span class="card-number">XXXX-XXXX-XXXX-<span id="last-4"><%= sessionAccount.stripeCardLast4 %></span></span>
+            <img class="card-type" src="/assets/images/cc-<%= sessionAccount.stripeCardBrand.toLowerCase().replace(' ', '') %>.png"/>
+          </p>
+
+          <a id="show-update-card-form">Update payment information</a>
+          
+          <form id="form-card-update" method="POST" class="form">
+            <p class="form-group">
+              <label for="card-element">Credit or debit card number</label>
+            </p>
+
+            <div id="card-element">
+              <!-- a Stripe Element will be inserted here. -->
+            </div>
+
+            <!-- Used to display form errors -->
+            <div id="card-errors" class="alert warning"></div>
+            <div class="actions">
+              <button id="submit-btn" type="submit" class="btn primary" disabled>
+                Submit
+              </button>
+            </div>
+          </form>
+        <% } %>
+
       </div>
     </div>
     </main>
 
     <% include com/footer.html %>
     <% include com/stdjs.html %>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+      window.params = {
+        stripePK: "<%= stripePK %>"
+      }
+    </script>
+    <script src="/assets/js/account.js"></script>
+
   </body>
 </html>
