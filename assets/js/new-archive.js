@@ -29,6 +29,20 @@ $(function () {
     // update submit button disabled state
     if (keyVal) addArchiveSubmitBtn.removeAttr('disabled')
     else addArchiveSubmitBtn.attr('disabled', true)
+
+    // provide initial feedback about archive name
+    if (!nameVal.match(/^([0-9a-zA-Z-]*)$/i))  {
+      renderErrors({
+        details: {
+          name: {
+            msg: 'Names must only contain characters, numbers, and dashes',
+            param: 'name'
+          }
+        }
+      })
+    } else {
+      $('#add-archive-name-error').text('').parent().removeClass('warning')
+    }
   }
 
   // alter values prior to submission
@@ -64,6 +78,7 @@ $(function () {
   })
 
   function renderErrors (json) {
+    console.log(json)
     // individual form errors
     var details = json.details || {}
     ;(['key', 'name']).forEach(function (name) {
