@@ -37,13 +37,19 @@
         <h2>Archive links</h2>
         <ul>
           <li>
-            <%= rawUrl %>
+            <span id="dat-raw-url" class="dat-link"><%= rawUrl %></span>
+            <a class="copy-to-clipboard" data-target="#dat-raw-url" title="Copy to clipboard">
+              <i class="fa fa-clipboard"></i>
+            </a>
             <a href="<%= rawUrl %>" title="<%= rawUrl %>">
               <i class="fa fa-external-link"></i>
             </a>
           </li>
           <li>
-            <%= niceUrl %>
+            <span id="dat-nice-url" class="dat-link"><%= niceUrl %></span>
+            <a class="copy-to-clipboard" data-target="#dat-nice-url" title="Copy to clipboard">
+              <i class="fa fa-clipboard"></i>
+            </a>
             <a href="<%= niceUrl %>" title="<%= niceUrl %>">
               <i class="fa fa-external-link"></i>
             </a>
@@ -68,5 +74,6 @@
     <% include com/footer.html %>
     <% include com/stdjs.html %>
     <script src="/assets/js/archive.js"></script>
+    <script src="/assets/js/clipboard.js"></script>
   </body>
 </html>
