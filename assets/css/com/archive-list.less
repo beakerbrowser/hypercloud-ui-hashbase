@@ -1,11 +1,8 @@
 .archive-list {
-  &:extend(.rounded);
-  border: 1px solid @color-border--light-gray;
-  background: @color-bg--modal-form;
 
   li {
     position: relative;
-    padding: .5rem 1rem;
+    padding: .5rem .75rem;
 
     &:not(:last-child) {
       border-bottom: 1px solid @color-border--light-gray;
@@ -13,6 +10,10 @@
 
     &:hover {
       background: @color-bg--light-blue;
+
+      .hashbase-link {
+        display: inline-block;
+      }
     }
   }
 
@@ -24,17 +25,68 @@
     }
   }
 
-  .dat-link {
-    &:extend(.overflow-ellipsis);
-    display: block;
-    color: @blue;
-    color: @color-text--light;
+  .metadata {
+    color: @color-text--muted;
+    font-weight: 400;
     font-size: .85rem;
   }
 
-  .peer-count {
+  .actions {
     position: absolute;
-    top: .5rem;
-    right: 1rem;
+    bottom: .5rem;
+    right: .75rem;
+  }
+
+  .btn {
+    font-size: .8rem;
+    font-weight: 400;
+    height: 22px;
+    padding: 2px 6px;
+    margin-left: .25rem;
+    display: inline-block;
+    vertical-align: bottom;
+  }
+
+  .hashbase-link {
+    display: none;
+  }
+
+  .peer-count i {
+    margin-right: 3px;
+  }
+}
+
+.tabbed-archive-list {
+  position: relative;
+  &:extend(.rounded);
+  border: 1px solid @color-border--light-gray;
+  background: @color-bg--modal-form;
+
+  .archives-view:not(.active) {
+    position: absolute;
+    z-index: @underneath;
+  }
+  
+  .heading {
+    margin: 0 .75rem;
+    padding: .5rem 0;
+    border-bottom: 1px solid @color-border--light-gray;
+    text-align: right;
+  }
+
+  .divider {
+    color: @color-text--light;
+    font-size: .75rem;
+    margin: 0 3px;
+  }
+
+  .archives-view-link {
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: .75rem;
+
+    &:not(.active) {
+      color: @color-text--light;
+    }
   }
 }

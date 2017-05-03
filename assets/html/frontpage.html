@@ -24,9 +24,21 @@
 
     <div class="highlighted-content">
       <div class="container">
-        <div class="popular">
-          <h2>Popular right now</h2>
-          <% include com/popular-content.html %>
+
+        <div class="tabbed-archive-list">
+          <div class="heading">
+            <a class="active archives-view-link" data-view=".archives-view.popular">Popular</a>
+            <span class="divider"> | </span> 
+            <a class="archives-view-link" data-view=".archives-view.recent">Recent</a>
+          </div>
+
+          <div class="archives-view popular active">
+            <% include com/popular-content.html %>
+          </div>
+
+          <div class="archives-view recent">
+            <% include com/activity.html %>
+          </div>
         </div>
 
         <div class="sidebar">
@@ -76,5 +88,6 @@
     </main>
     <% include com/footer.html %>
     <% include com/stdjs.html %>
+    <script src="/assets/js/frontpage.js"></script>
   </body>
 </html>
