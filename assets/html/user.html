@@ -14,7 +14,7 @@
         <a href="/<%= userRecord.username %>"><%= userRecord.username %></a>
       </h1>
       <% if (session && session.id === userRecord.id) { %>
-        <button class="new-archive btn success">New archive</button>
+        <a href="/new-archive" class="new-archive btn success">New archive</a>
       <% } %>
 
       <% if (userRecord.archives.length === 0) { %>
