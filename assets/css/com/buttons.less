@@ -16,6 +16,8 @@ button.btn {
   font-size: .9rem;
   height: 25px;
   text-decoration: none !important;
+  background: @color-bg;
+  border: 1px solid @color-border--light-gray;
 
   &.small {
     padding: 0 10px;
@@ -76,7 +78,8 @@ button.btn {
     border: 1px solid @color-border--light-gray;
 
     &:hover {
-      border-color: @color-border--gray;
+      &:extend(.antialiased);
+      background: @color-border--light-gray;
     }
   }
 
