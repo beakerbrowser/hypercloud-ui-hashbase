@@ -1,13 +1,18 @@
 <li class="archive">
+  <div class="actions">
+    <a href="dat://<%= archive.key %>" class="btn transparent peer-count">
+      <i class="fa fa-share-alt"></i>
+      <%= archive.peerCount %>
+    </a>
+  </div>
+
   <a href="dat://<%= archive.key %>" class="name">
     <%= archive.name %>
   </a>
 
   <p class="metadata">
     Uploaded by
-    <a href="/<%= archive.username %>">
-      <%= archive.username %>
-    </a>
+    <a href="/<%= archive.username %>"><%= archive.username %></a>
     <span class="time">
       <% var date = nicedate(archive.createdAt) %>
       <%= date %>
@@ -15,15 +20,9 @@
         <span> ago</span>
       <% } %>
     </span>
+    |
+    <a href="/<%= archive.username %>/<%= archive.name %>">
+      details
+    </a>
   </p>
-
-  <div class="actions">
-    <a href="/<%= archive.username %>/<%= archive.name %>" class="btn transparent hashbase-link">
-      <i class="fa fa-link"></i>
-    </a>
-    <a href="dat://<%= archive.key %>" class="btn transparent peer-count">
-      <i class="fa fa-share-alt"></i>
-      <%= archive.peerCount %>
-    </a>
-  </div>
 </li>

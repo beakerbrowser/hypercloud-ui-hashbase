@@ -2,23 +2,13 @@
 
   li {
     position: relative;
-    padding: .5rem .75rem;
-
-    &:not(:last-child) {
-      border-bottom: 1px solid @color-border--light-gray;
-    }
-
-    &:hover {
-      background: @color-bg--light-blue;
-
-      .hashbase-link {
-        display: inline-block;
-      }
-    }
+    padding: .5rem .75rem .5rem 4rem;
   }
 
   .name {
     font-weight: 700;
+    color: @blue;
+    font-size: 1.5rem;
 
     &:hover {
       &:extend(.link);
@@ -29,12 +19,16 @@
     color: @color-text--muted;
     font-weight: 400;
     font-size: .85rem;
+
+    a:hover {
+      &:extend(.link);
+    }
   }
 
   .actions {
     position: absolute;
-    bottom: .5rem;
-    right: .75rem;
+    left: 0;
+    top: 15px;
   }
 
   .btn {
@@ -47,10 +41,6 @@
     vertical-align: bottom;
   }
 
-  .hashbase-link {
-    display: none;
-  }
-
   .peer-count i {
     margin-right: 3px;
   }
@@ -58,9 +48,6 @@
 
 .tabbed-archive-list {
   position: relative;
-  &:extend(.rounded);
-  border: 1px solid @color-border--light-gray;
-  background: @color-bg--modal-form;
 
   .archives-view:not(.active) {
     position: absolute;
