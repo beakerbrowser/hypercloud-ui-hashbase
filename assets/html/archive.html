@@ -46,11 +46,20 @@
             </a>
           </li>
           <li>
-            <span id="dat-nice-url" class="dat-link"><%= niceUrl %></span>
+            <span id="dat-nice-url" class="dat-link">dat://<%= niceUrl %></span>
             <a class="copy-to-clipboard" data-target="#dat-nice-url" title="Copy to clipboard">
               <i class="fa fa-clipboard"></i>
             </a>
-            <a href="<%= niceUrl %>" title="<%= niceUrl %>">
+            <a href="dat://<%= niceUrl %>" title="<%= niceUrl %>" target="_blank">
+              <i class="fa fa-external-link"></i>
+            </a>
+          </li>
+          <li>
+            <span id="https-nice-url" class="dat-link">https://<%= niceUrl %></span>
+            <a class="copy-to-clipboard" data-target="#https-nice-url" title="Copy to clipboard">
+              <i class="fa fa-clipboard"></i>
+            </a>
+            <a href="https://<%= niceUrl %>" title="<%= niceUrl %>" target="_blank">
               <i class="fa fa-external-link"></i>
             </a>
           </li>
