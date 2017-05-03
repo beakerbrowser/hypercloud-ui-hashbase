@@ -1,28 +1,30 @@
 <li class="archive">
-  <div class="actions">
-    <a href="dat://<%= archive.key %>" class="btn transparent peer-count">
-      <i class="fa fa-share-alt"></i>
-      <%= archive.peerCount %>
-    </a>
-  </div>
-
-  <a href="dat://<%= archive.key %>" class="name">
-    <%= archive.name %>
+  <a href="dat://<%= archive.key %>" class="peer-count">
+    <i class="fa fa-share-alt"></i>
+    <%= archive.peerCount %>
   </a>
 
-  <p class="metadata">
-    Uploaded by
-    <a href="/<%= archive.username %>"><%= archive.username %></a>
-    <span class="time">
-      <% var date = nicedate(archive.createdAt) %>
-      <%= date %>
-      <% if (date !== 'yesterday' && date !== 'just now') { %>
-        <span> ago</span>
-      <% } %>
-    </span>
-    |
-    <a href="/<%= archive.username %>/<%= archive.name %>">
-      details
+  <div class="info">
+    <a href="dat://<%= archive.key %>" class="name">
+      <%= archive.name %>
     </a>
-  </p>
+
+    <p class="metadata">
+      Uploaded by
+      <a href="/<%= archive.username %>">
+        <%= archive.username %>
+      </a>
+      <span class="time">
+        <% var date = nicedate(archive.createdAt) %>
+        <%= date %>
+        <% if (date !== 'yesterday' && date !== 'just now') { %>
+          <span> ago</span>
+        <% } %>
+      </span>
+      -
+      <a href="/<%= archive.username %>/<%= archive.name %>" class="details">
+        details
+      </a>
+    </p>
+  </div>
 </li>

@@ -1,14 +1,23 @@
 .archive-list {
 
   li {
+    height: 40px;
     position: relative;
-    padding: .5rem .75rem .5rem 4rem;
+    margin: 1.5rem 0;
+
+    &:first-child {
+      margin-top: .75rem;
+    }
+
+    &:last-child {
+      margin-bottom: .75rem;
+    }
   }
 
   .name {
     font-weight: 700;
     color: @blue;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 
     &:hover {
       &:extend(.link);
@@ -20,15 +29,9 @@
     font-weight: 400;
     font-size: .85rem;
 
-    a:hover {
+    a.details {
       &:extend(.link);
     }
-  }
-
-  .actions {
-    position: absolute;
-    left: 0;
-    top: 15px;
   }
 
   .btn {
@@ -41,8 +44,24 @@
     vertical-align: bottom;
   }
 
-  .peer-count i {
-    margin-right: 3px;
+  .peer-count,
+  .info {
+    display: inline-block;
+  }
+
+  .peer-count {
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: top;
+    font-size: 1.1rem;
+    margin-right: 1rem;
+    width: 50px;
+    text-align: center;
+  
+    i {
+      margin-right: 3px;
+    }
   }
 }
 
@@ -51,11 +70,11 @@
 
   .archives-view:not(.active) {
     position: absolute;
+    opacity: 0;
     z-index: @underneath;
   }
   
   .heading {
-    margin: 0 .75rem;
     padding: .5rem 0;
     border-bottom: 1px solid @color-border--light-gray;
     text-align: right;
