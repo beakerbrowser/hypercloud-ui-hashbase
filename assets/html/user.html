@@ -13,6 +13,9 @@
       <h1 class="breadcrumbs">
         <a href="/<%= userRecord.username %>"><%= userRecord.username %></a>
       </h1>
+      <% if (session && session.id === userRecord.id) { %>
+        <button class="new-archive btn success">New archive</button>
+      <% } %>
 
       <% if (userRecord.archives.length === 0) { %>
         <p><%= userRecord.username %> hasn't uploaded any archives.</p>
