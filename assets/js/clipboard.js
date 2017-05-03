@@ -10,7 +10,7 @@ $(function () {
     document.body.appendChild(input)
 
     // get the text to select from the target element
-    var targetEl = document.querySelector(e.target.dataset.target)
+    var targetEl = document.querySelector(this.dataset.target)
 
     // set the input's value and select the text 
     input.value = targetEl.innerText

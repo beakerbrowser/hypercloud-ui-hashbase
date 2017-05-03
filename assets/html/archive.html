@@ -16,22 +16,25 @@
         <span><%= archivename %></span>
       </h1>
 
-      <div class="section">
-        <div class="progress-bar-container">
-          <span class="label">
-            Upload progress (<%= progress %>%)
-            <% if (progress < 100) { %>
+      <% if (isOwner) { %>
+        <div class="section">
+          <div class="progress-bar-container">
+            <span class="label">
+              Upload progress (<span><%= progress %>%</span>)
               <i class="fa fa-spinner fa-spin"></i>
-            <% } %>
-          </span>
-          <div
-            class="progress-bar"
-            role="progressbar"
-            aria-valuemin="0"
-            aria-valuemax="100"
-            aria-valuenow="<%= progress %>"></div>
+            </span>
+            <div
+              class="progress-bar"
+              role="progressbar"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="<%= progress %>"
+              data-key="<%= key %>">
+              <div class="progress" style="width: <%= progress %>%"></div>
+            </div>
+          </div>
         </div>
-      </div>
+      <% } %>
 
       <div class="section links">
         <h2>Archive links</h2>
@@ -46,11 +49,20 @@
             </a>
           </li>
           <li>
-            <span id="dat-nice-url" class="dat-link"><%= niceUrl %></span>
+            <span id="dat-nice-url" class="dat-link">dat://<%= niceUrl %></span>
             <a class="copy-to-clipboard" data-target="#dat-nice-url" title="Copy to clipboard">
               <i class="fa fa-clipboard"></i>
             </a>
-            <a href="<%= niceUrl %>" title="<%= niceUrl %>">
+            <a href="dat://<%= niceUrl %>" title="<%= niceUrl %>" target="_blank">
+              <i class="fa fa-external-link"></i>
+            </a>
+          </li>
+          <li>
+            <span id="https-nice-url" class="dat-link">https://<%= niceUrl %></span>
+            <a class="copy-to-clipboard" data-target="#https-nice-url" title="Copy to clipboard">
+              <i class="fa fa-clipboard"></i>
+            </a>
+            <a href="https://<%= niceUrl %>" title="<%= niceUrl %>" target="_blank">
               <i class="fa fa-external-link"></i>
             </a>
           </li>
@@ -75,5 +87,8 @@
     <% include com/stdjs.html %>
     <script src="/assets/js/archive.js"></script>
     <script src="/assets/js/clipboard.js"></script>
+    <% if (isOwner) { %>
+      <script src="/assets/js/upload-progress.js"></script>
+    <% } %>
   </body>
 </html>
