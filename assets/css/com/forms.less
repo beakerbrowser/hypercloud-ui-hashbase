@@ -29,8 +29,22 @@
   margin-bottom: 1rem;
 }
 
-.form-desc {
+.form-desc,
+.form-help {
   margin-bottom: 1.5rem;
+}
+
+.form-footer {
+  font-size: .85rem;
+  padding: 1rem;
+  margin: 1rem -1rem -1rem -1rem;
+  background: shade(@color-bg--modal-form, 2%);
+  border-top: 1px solid @color-border--light-gray;
+
+  a {
+    color: @blue;
+    &:extend(.link);
+  }
 }
 
 .form-desc.bordered {
