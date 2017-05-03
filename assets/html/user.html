@@ -14,17 +14,32 @@
         <a href="/<%= userRecord.username %>"><%= userRecord.username %></a>
       </h1>
       <% if (session && session.id === userRecord.id) { %>
-        <button class="new-archive btn success">New archive</button>
+        <a href="/new-archive" class="new-archive btn success">New archive</a>
       <% } %>
 
-      <% if (userRecord.archives.length === 0) { %>
-        <p><%= userRecord.username %> hasn't uploaded any archives.</p>
-      <% } %>
+      <div class="content">
+      <div class="archives">
+        <% if (userRecord.archives.length === 0) { %>
+          <p><%= userRecord.username %> hasn't uploaded any archives.</p>
+        <% } %>
 
-      <div>
-        <% userRecord.archives.forEach(a => { %>
-          <a href="/<%= userRecord.username %>/<%= a.name || a.key %>" class="list-group-item list-group-item-action"><%= userRecord.username %> / <%= a.name %></a>
-        <% }) %>
+        <ul class="archive-list">
+          <% userRecord.archives.forEach(archive => { %>
+            <a><%= archive.name %></a>
+          <% }) %>
+        </div>
+      </div>
+
+      <div class="activity">
+        <h2 class="heading">Recent activity</h2>
+        <div class="content">
+          <% if (activity.length) { %>
+            <%- include('com/activity.html', {activity}) %>
+          <% } else { %>
+            <p>No recent activity</p>
+          <% } %>
+        </div>
+      </div>
       </div>
     </div>
     </main>
