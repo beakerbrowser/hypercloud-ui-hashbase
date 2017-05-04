@@ -8,12 +8,12 @@
     <main class="home">
     <% if (!session ) { %>
       <div class="hero-container">
-        <% include com/nav.html %>
+        <%- include('com/nav.html', {navClass: 'juicy'}) %>
         <% include com/home-cta.html %>
       </div>
 
     <% } else { %>
-      <% include com/nav.html %>
+      <%- include('com/nav.html', {navClass: ''}) %>
     <% } %>
 
     <% if (verified) { %>
