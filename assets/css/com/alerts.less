@@ -8,6 +8,10 @@
   max-width: 500px;
   margin: auto;
 
+  &:empty {
+    display: none;
+  }
+
   &.success {
     background: tint(@green, 65%);
     color: mix(@color-text, @green, 35%);
