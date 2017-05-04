@@ -1,15 +1,24 @@
 .tools-cta {
+
   .tool {
-    background: @color-bg--light-gray;
-    padding: 1em;
-    margin: 0.2em 0;
-    border-radius: 3px;
+    &:extend(.rounded);
+    //background: @color-bg--light-gray;
+    border: 1px solid @color-border--light-gray;
+    padding: .5rem 1rem;
+    margin-bottom: .5rem;
 
     a {
       color: @blue;
+      font-weight: 500;
+
       &:hover {
         &:extend(.link);
       }
+    }
+
+    .description {
+      //color: @color-text--muted;
+      margin-left: .25rem;
     }
   }
 }
