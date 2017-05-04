@@ -3,11 +3,7 @@
   li {
     position: relative;
     padding: .75rem .5rem;
-    border-bottom: 1px solid @color-border--light-gray;
-
-    &:last-child {
-      border-bottom: 0;
-    }
+    border-top: 1px solid @color-border--light-gray;
 
     &:hover {
 
@@ -17,19 +13,26 @@
     }
   }
 
-  .name {
-    font-weight: 700;
-    color: @blue;
-    font-size: 1.3rem;
-
-    &:hover {
-      &:extend(.link);
+  .archive-heading {
+    color: @color-text--muted;
+    .title {
+      color: @blue;
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+    a {
+      &:hover {
+        &:extend(.link);
+      }
+    }
+    span {
+      font-size: 0.85rem;
     }
   }
 
   .description {
-    margin-top: -5px;
-    margin-bottom: 10px;
+    margin-bottom: 2px;
+    color: @color-text--muted;
   }
 
   .time {
@@ -39,19 +42,22 @@
     top: .75rem;
   }
 
-  .details {
-    position: absolute;
-    right: .75rem;
-    bottom: .75rem;
-    opacity: 0;
-    &:extend(.rounded);
-    transition: .1s opacity ease;
-    color: @color-text--muted;
-  }
-
   .metadata {
+    color: lighten(@color-text--muted, 5%);
     font-weight: 400;
     font-size: .85rem;
+
+    code {
+      font-size: .75rem;
+      padding-right: 0.25rem;
+    }
+
+    a {
+      color: @blue;
+      &:hover {
+        &:extend(.link);
+      }
+    }
   }
 
   .http-link,
@@ -94,17 +100,12 @@
 }
 
 .tabbed-archive-list {
-  &:extend(.rounded);
-  border: 1px solid @color-border--light-gray;
-
   .archives-view:not(.active) {
     display: none;
   }
   
   .heading {
-    background: @color-bg--light-gray;
     padding: .25rem .75rem;
-    border-bottom: 1px solid @color-border--light-gray;
   }
 
   .divider {
