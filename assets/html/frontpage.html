@@ -6,80 +6,43 @@
   </head>
   <body>
     <main class="home">
-    <% if (!session ) { %>
-      <div class="hero-container">
-        <%- include('com/nav.html', {navClass: 'juicy'}) %>
-        <% include com/home-cta.html %>
-      </div>
-
-    <% } else { %>
       <%- include('com/nav.html', {navClass: ''}) %>
-    <% } %>
 
-    <% if (verified) { %>
-      <div class="alert success" role="alert">
-        <strong>Welcome!</strong> Your email is verified and your account is now active.
-      </div>
-    <% } %>
-
-    <div class="highlighted-content">
-      <div class="container">
-
-        <div class="tabbed-archive-list">
-          <div class="heading">
-            <a class="active archives-view-link" data-view=".archives-view.popular">Popular</a>
-            <span class="divider"> | </span> 
-            <a class="archives-view-link" data-view=".archives-view.recent">Recent</a>
-          </div>
-
-          <div class="archives-view popular active">
-            <% include com/popular-archives.html %>
-          </div>
-
-          <div class="archives-view recent">
-            <% include com/recent-archives.html %>
-          </div>
+      <% if (verified) { %>
+        <div class="alert success" role="alert">
+          <strong>Welcome!</strong> Your email is verified and your account is now active.
         </div>
+      <% } %>
 
-        <div class="sidebar">
-          <% if (session && sessionUser) { %>
-            <div class="your-archives">
-              <div class="heading">
-                <h2>Your archives</h2>
-                <a href="/new-archive" class="btn success">
-                  New archive
-                </a>
-              </div>
+      <div class="highlighted-content">
+        <div class="container">
 
-              <% if (!sessionUser.archives.length) { %>
-                <span class="no-archives">
-                  You haven't uploaded any archives.
-                </span>
-              <% } %>
-
-              <ul class="archives">
-                <% userArchives.forEach(archive => { %>
-                  <a class="archive" href="/<%= sessionUser.username%>/<%= archive.name %>">
-                    <span class="name">
-                      <%= archive.title || archive.name %>
-                    </span>
-                    <span class="peer-count">
-                      <i class="fa fa-share-alt"></i>
-                      <%= archive.numPeers %>
-                    </span>
-                  </a>
-                <% }) %>
-              </ul>
-              <% if (sessionUser.archives.length > 10) { %>
-                <a href="/<%= sessionUser.username %>">
-                  View <%= sessionUser.archives.length - 10 %> more archives...
-                </a>
-              <% } %>
+          <div class="tabbed-archive-list">
+            <div class="heading">
+              <a class="active archives-view-link" data-view=".archives-view.popular">Popular</a>
+              <span class="divider"> | </span> 
+              <a class="archives-view-link" data-view=".archives-view.recent">Recent</a>
             </div>
-          <% } %>
+
+            <div class="archives-view popular active">
+              <% include com/popular-archives.html %>
+            </div>
+
+            <div class="archives-view recent">
+              <% include com/recent-archives.html %>
+            </div>
+          </div>
+
+          <div class="sidebar">
+            <% if (session && sessionUser) { %>
+              <% include com/your-archives.html %>
+            <% } else { %>
+              <% include com/home-cta.html %>
+            <% } %>
+            <% include com/tools-cta.html %>
+          </div>
         </div>
       </div>
-    </div>
     </main>
     <% include com/footer.html %>
     <% include com/stdjs.html %>
