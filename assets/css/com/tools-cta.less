@@ -1,15 +1,32 @@
 .tools-cta {
+  margin: 2rem 0;
+
   .tool {
-    background: @color-bg--light-gray;
-    padding: 1em;
-    margin: 0.2em 0;
-    border-radius: 3px;
+    border-bottom: 1px solid @color-border--light-gray;
+    padding: .5rem 1rem;
+    width: 100%;
+
+    &:first-of-type {
+      border-top: 1px solid @color-border--light-gray;
+    }
+
+    @media (min-width: @tablet-horizontal) {
+      border-radius: 3px;
+      border: 1px solid @color-border--light-gray;
+      margin-bottom: .5rem;
+    }
 
     a {
       color: @blue;
+      font-weight: 500;
+
       &:hover {
         &:extend(.link);
       }
+    }
+
+    .description {
+      margin-left: .25rem;
     }
   }
 }

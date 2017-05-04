@@ -23,12 +23,7 @@ main.home {
   .hero {
     &:extend(.antialiased);
     font-weight: 500;
-    padding: 1rem 0 3rem 0;
     border-radius: 3px;
-
-    @media (min-width: @tablet-horizontal) {
-      padding: 2rem 0 3rem 0;
-    }
 
     .tagline,
     .blurb {
@@ -68,8 +63,6 @@ main.home {
 
   .tabbed-archive-list, .sidebar {
     width: 100%;
-    display: inline-block;
-    vertical-align: top;
   }
 
   .your-archives {
@@ -120,18 +113,30 @@ main.home {
     }
   }
 
+  .highlighted-content .container {
+    &:extend(.flex);
+  }
+
+
+  .sidebar {
+    order: 1;
+  }
+
+  .tabbed-archive-list {
+    order: 2;
+  }
+
   @media (min-width: @tablet-horizontal) {
-    .container {
-      display: flex;
-    }
-    
+
     .tabbed-archive-list {
       flex: 2;
+      order: 1;
       padding-right: 4rem;
     }
 
     .sidebar {
       flex: 1;
+      order: 2;
       margin-top: 20px;
     }
   }
