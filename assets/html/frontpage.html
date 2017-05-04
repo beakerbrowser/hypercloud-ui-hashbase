@@ -6,38 +6,31 @@
   </head>
   <body>
     <main class="home">
-    <% if (!session ) { %>
-      <div class="hero-container">
-        <%- include('com/nav.html', {navClass: 'juicy'}) %>
-        <% include com/home-cta.html %>
-      </div>
-
-    <% } else { %>
       <%- include('com/nav.html', {navClass: ''}) %>
-    <% } %>
 
-    <% if (verified) { %>
-      <div class="alert success" role="alert">
-        <strong>Welcome!</strong> Your email is verified and your account is now active.
-      </div>
-    <% } %>
+      <% if (verified) { %>
+        <div class="alert success" role="alert">
+          <strong>Welcome!</strong> Your email is verified and your account is now active.
+        </div>
+      <% } %>
 
-    <div class="highlighted-content">
-      <div class="container">
+      <div class="highlighted-content">
+        <div class="container">
 
-        <div class="tabbed-archive-list">
-          <div class="heading">
-            <a class="active archives-view-link" data-view=".archives-view.popular">Popular</a>
-            <span class="divider"> | </span> 
-            <a class="archives-view-link" data-view=".archives-view.recent">Recent</a>
-          </div>
+          <div class="tabbed-archive-list">
+            <div class="heading">
+              <a class="active archives-view-link" data-view=".archives-view.popular">Popular</a>
+              <span class="divider"> | </span> 
+              <a class="archives-view-link" data-view=".archives-view.recent">Recent</a>
+            </div>
 
-          <div class="archives-view popular active">
-            <% include com/popular-archives.html %>
-          </div>
+            <div class="archives-view popular active">
+              <% include com/popular-archives.html %>
+            </div>
 
-          <div class="archives-view recent">
-            <% include com/recent-archives.html %>
+            <div class="archives-view recent">
+              <% include com/recent-archives.html %>
+            </div>
           </div>
 
           <div class="sidebar">
