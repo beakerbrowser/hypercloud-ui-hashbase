@@ -16,20 +16,28 @@ main.profile {
     margin-left: 1rem;
   }
 
-  .archives,
   .activity {
-    width: 100%;
-    display: inline-block;
+    display: none;
   }
 
   @media (min-width: @tablet-horizontal) {
+    .content {
+      display: flex;
+    }
+
     .archives {
-      width: 60%;
-      margin-right: 4rem;
+      flex: 2;
+      padding-right: 4rem;
     }
 
     .activity {
-      width: 30%;
+      display: block;
+      flex: 1;
+
+      h2 {
+        margin-top: 0;
+        font-size: 1rem;
+      }
     }
   }
 }
