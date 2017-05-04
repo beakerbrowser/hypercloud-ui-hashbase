@@ -1,17 +1,17 @@
 main.home {
   padding-top: 0;
 
- .nav,
- .mobile-nav-links,
- .mobile-nav-links .mobile-nav-toggle i {
-   &:extend(.text-shadow);
-   color: @color-text--white-transparent;
+  .nav,
+  .mobile-nav-links,
+  .mobile-nav-links .mobile-nav-toggle i {
+    &:extend(.text-shadow);
+    color: @color-text--white-transparent;
 
-  .nav-item:not(.register):hover {
-     &:extend(.rounded);
-       background: @color-bg--white-transparent;
-       overflow: initial !important; // .rounded has overflow: hidden which messes up dropdown
-     }
+    .nav-item:not(.register):hover {
+      &:extend(.rounded);
+      background: @color-bg--white-transparent;
+      overflow: initial !important; // .rounded has overflow: hidden which messes up dropdown
+    }
   }
  
   .nav,
@@ -116,7 +116,7 @@ main.home {
 
   .highlighted-content {
     vertical-align: top;
-    padding: 3rem 0;
+    padding: 1rem 0;
 
     .tabbed-archive-list, .sidebar {
       width: 100%;

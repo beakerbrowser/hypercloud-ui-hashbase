@@ -17,7 +17,7 @@
   .name {
     font-weight: 700;
     color: @blue;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 
     &:hover {
       &:extend(.link);
@@ -66,12 +66,8 @@
 }
 
 .tabbed-archive-list {
-  position: relative;
-
   .archives-view:not(.active) {
-    position: absolute;
-    opacity: 0;
-    z-index: @underneath;
+    display: none;
   }
   
   .heading {
