@@ -11,10 +11,19 @@
     <div class="container">
       <p id="error-general" class="alert warning"></p>
 
-      <h1 class="breadcrumbs">
+      <p class="breadcrumbs">
         <a href="/<%= username %>"><%= username %></a>
         <span><%= archivename %></span>
-      </h1>
+      </p>
+
+      <div class="section">
+        <h1><%= title %></h1>
+        <% if (description) { %>
+          <p><%= description %></p>
+        <% } else { %>
+          <p><em>No description</em></p>
+        <% } %>
+      </div>
 
       <% if (isOwner) { %>
         <div class="section">
@@ -37,7 +46,6 @@
       <% } %>
 
       <div class="section links">
-        <h2>Archive links</h2>
         <ul>
           <li>
             <span id="dat-raw-url" class="dat-link"><%= rawUrl %></span>

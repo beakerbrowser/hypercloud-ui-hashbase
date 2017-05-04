@@ -19,15 +19,15 @@
 
       <div class="content">
       <div class="archives">
-        <% if (userRecord.archives.length === 0) { %>
+        <% if (archives.length === 0) { %>
           <p><%= userRecord.username %> hasn't uploaded any archives.</p>
         <% } %>
 
         <ul class="archive-list">
-          <% userRecord.archives.forEach(archive => { %>
-            <a><%= archive.name %></a>
+          <% archives.forEach(archive => { %>
+            <%- include('com/archive-list-item', {archive: archive}) %>
           <% }) %>
-        </div>
+        </ul>
       </div>
 
       <div class="activity">
