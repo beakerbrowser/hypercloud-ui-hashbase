@@ -1,11 +1,20 @@
 .tools-cta {
+  margin: 2rem 0;
 
   .tool {
-    &:extend(.rounded);
-    //background: @color-bg--light-gray;
-    border: 1px solid @color-border--light-gray;
+    border-bottom: 1px solid @color-border--light-gray;
     padding: .5rem 1rem;
-    margin-bottom: .5rem;
+    width: 100%;
+
+    &:first-of-type {
+      border-top: 1px solid @color-border--light-gray;
+    }
+
+    @media (min-width: @tablet-horizontal) {
+      border-radius: 3px;
+      border: 1px solid @color-border--light-gray;
+      margin-bottom: .5rem;
+    }
 
     a {
       color: @blue;
@@ -17,7 +26,6 @@
     }
 
     .description {
-      //color: @color-text--muted;
       margin-left: .25rem;
     }
   }
