@@ -7,14 +7,20 @@
 
     <div class="info">
       <a href="dat://<%= archive.key %>" class="name">
-        <%= archive.name %>
+        <% if (archive.manifest) { %>
+          <%= archive.manifest.title || archive.name %>
+        <% } else { %>
+          <%= archive.name %>
+        <% } %>
       </a>
 
-      <p class="metadata">
-        Uploaded by
-        <a href="/<%= archive.owner.username %>">
-          <%= archive.owner.username %>
-        </a>
+      <% if (archive.manifest && archive.manifest.description) { %>
+        <p class="description">
+          <%= archive.manifest.description %>
+        </p>
+      <% } %>
+
+      <div class="metadata">
         <span class="time">
           <% var date = nicedate(archive.createdAt) %>
           <%= date %>
@@ -22,11 +28,21 @@
             <span> ago</span>
           <% } %>
         </span>
-        -
-        <a href="/<%= archive.owner.username %>/<%= archive.name %>" class="details">
-          details
+
+        Uploaded by 
+        <a class="username" href="/<%= archive.owner.username %>">
+          <%= archive.owner.username %>
         </a>
-      </p>
+        &bull;
+
+        <a href="<%= archive.name %>.<%= archive.owner.username %>.hashbase.io" class="http-link">
+          <%= archive.name %>.<%= archive.owner.username %>.hashbase.io
+        </a>
+      </div>
+
+      <a href="/<%= archive.owner.username %>/<%= archive.name %>" class="btn transparent details">
+        details &raquo;
+      </a>
     </div>
   </li>
 <% } %>

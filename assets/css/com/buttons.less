@@ -78,8 +78,7 @@ button.btn {
     border: 1px solid @color-border--light-gray;
 
     &:hover {
-      &:extend(.antialiased);
-      background: @color-border--light-gray;
+      background: tint(@color-border--light-gray, 75%);
     }
   }
 
