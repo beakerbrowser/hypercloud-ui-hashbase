@@ -38,12 +38,12 @@ $(function () {
         $('#error-' + name)
           .text(details[name].msg)
           .parent()
-          .addClass('has-warning')
+          .addClass('warning')
       } else {
         $('#error-' + name)
           .text('')
           .parent()
-          .removeClass('has-warning')
+          .removeClass('warning')
       }
     })
   }

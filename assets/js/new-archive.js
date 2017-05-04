@@ -90,7 +90,7 @@ $(function () {
         $('#add-archive-' + name + '-error')
           .text('')
           .parent()
-          .removeClass('has-warning')
+          .removeClass('warning')
       }
     })
   }
