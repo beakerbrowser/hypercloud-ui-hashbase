@@ -1,18 +1,21 @@
 <% if (archive.owner) { %>
   <li class="archive">
-    <a href="dat://<%= archive.key %>" class="peer-count">
+    <span class="peer-count">
       <i class="fa fa-share-alt"></i>
       <%= archive.numPeers %>
-    </a>
+    </span>
 
     <div class="info">
-      <a href="dat://<%= archive.key %>" class="name">
-        <% if (archive.manifest) { %>
-          <%= archive.manifest.title || archive.name %>
-        <% } else { %>
-          <%= archive.name %>
-        <% } %>
-      </a>
+      <div class="archive-heading">
+        <a href="dat://<%= archive.niceUrl || archive.key %>" class="title">
+          <% if (archive.manifest) { %>
+            <%= archive.manifest.title || archive.name %>
+          <% } else { %>
+            <%= archive.name %>
+          <% } %>
+        </a>
+        <span>by <a href="/<%= archive.owner.username %>"><%= archive.owner.username %></a></span>
+      </div>
 
       <% if (archive.manifest && archive.manifest.description) { %>
         <p class="description">
@@ -20,29 +23,20 @@
         </p>
       <% } %>
 
+      <span class="time">
+        <% var date = nicedate(archive.createdAt) %>
+        <%= date %>
+        <% if (date !== 'yesterday' && date !== 'just now') { %>
+          <span> ago</span>
+        <% } %>
+      </span>
+
       <div class="metadata">
-        <span class="time">
-          <% var date = nicedate(archive.createdAt) %>
-          <%= date %>
-          <% if (date !== 'yesterday' && date !== 'just now') { %>
-            <span> ago</span>
-          <% } %>
-        </span>
-
-        Uploaded by 
-        <a class="username" href="/<%= archive.owner.username %>">
-          <%= archive.owner.username %>
-        </a>
-        &bull;
-
-        <a href="<%= archive.name %>.<%= archive.owner.username %>.hashbase.io" class="http-link">
-          <%= archive.name %>.<%= archive.owner.username %>.hashbase.io
-        </a>
+        <code><%= archive.niceUrl %></code>
+        <a href="https://<%= archive.niceUrl %>">https</a> &bull;
+        <a href="dat://<%= archive.niceUrl %>">dat</a> &bull;
+        <a href="/<%= archive.owner.username %>/<%= archive.name %>">info</a>
       </div>
-
-      <a href="/<%= archive.owner.username %>/<%= archive.name %>" class="btn transparent details">
-        details &raquo;
-      </a>
     </div>
   </li>
 <% } %>

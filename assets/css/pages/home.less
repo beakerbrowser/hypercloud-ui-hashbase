@@ -58,154 +58,90 @@ main.home {
         text-decoration: underline;
       }
     }
-
-    .pricing {
-      &:extend(.rounded);
-      background: @color-bg;
-      color: @color-text;
-      padding: 1rem;
-      margin-top: 2rem;
-
-      .price {
-        &:extend(.flex);
-        margin-bottom: 1rem;
-        padding-bottom: .25rem;
-        width: 100%;
-        justify-content: space-between;
-        border-bottom: 1px solid @color-border--light-gray;
-        font-weight: 700;
-
-        .cta {
-          font-weight: 500;
-
-          i {
-            margin-left: .25rem;
-          }
-
-          &:hover {
-
-            i {
-              transition: margin padding .3s ease;
-              margin-right: -.25rem;
-              padding-left: .25rem;
-            }
-          }
-        }
-
-        &.pro {
-          margin-top: 1rem;
-        }
-      }
-
-      .pro .features {
-        columns: 2;
-        -webkit-columns: 2;
-        -mox-columns: 2;
-      }
-
-      ul.features {
-        list-style-type: circle;
-        margin-left: 1.5rem;
-
-        li {
-          margin-left: 15px;
-        }
-      }
-    }
   }
 
   .highlighted-content {
     vertical-align: top;
     padding: 1rem 0;
+  }
 
-    .tabbed-archive-list, .sidebar {
-      width: 100%;
-      display: inline-block;
-      vertical-align: top;
+  .tabbed-archive-list, .sidebar {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .your-archives {
+    border-radius: 3px; // TODO: why the f isn't &:extend(.rounded) working?
+    border: 1px solid @color-border--light-gray;
+    margin-bottom: 2rem;
+
+    .archive {
+      display: block;
+      padding: .5rem 0.8rem;
+      font-size: .85rem;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid @color-border--light-gray;
+      }
+
+      &:hover {
+        background: @color-bg--light-blue;
+      }
+
+      .name {
+        color: @blue;
+        font-weight: 500;
+      }
+
+      .peer-count {
+        float: right;
+      }
+    }
+
+    .heading {
+      display: flex; // TODO: why isn't &:extend isn't working
+      align-items: center;
+      justify-content: space-between;
+      padding: .5rem 0.8rem;
+      border-bottom: 1px solid @color-border--light-gray;
+      font-size: .9rem;
+
+      h2 {
+        display: inline-block;
+        margin: 0;
+        font-size: .9rem;
+      }
+    }
+
+    .no-archives {
+      font-size: .85rem;
+    }
+  }
+
+  @media (min-width: @tablet-horizontal) {
+    .container {
+      display: flex;
+    }
+    
+    .tabbed-archive-list {
+      flex: 2;
+      padding-right: 4rem;
     }
 
     .sidebar {
-
-      h2 {
-        font-size: .9rem;
-        margin-top: 0;
-      }
-
-      .your-archives,
-      .activity {
-        border-radius: 3px; // TODO: why the f isn't &:extend(.rounded) working?
-        background: @color-bg--modal-form;
-        border: 1px solid @color-border--light-gray;
-      }
-
-      .activity {
-        padding: 1rem;
-
-        .event .time {
-          float: right;
-          color: @color-text--light;
-        }
-      }
-
-      .your-archives {
-        border-radius: 3px; // TODO: why the f isn't &:extend(.rounded) working?
-        background: @color-bg--modal-form;
-        border: 1px solid @color-border--light-gray;
-        margin-bottom: 2rem;
-
-        .archive {
-          display: block;
-          padding: .25rem 1rem;
-          font-size: .85rem;
-
-          &:not(:last-child) {
-            border-bottom: 1px solid @color-border--light-gray;
-          }
-
-          &:hover {
-            background: @color-bg--light-blue;
-          }
-
-          .name {
-            color: @blue;
-            font-weight: 500;
-          }
-
-          .peer-count {
-            float: right;
-          }
-        }
-
-        .heading {
-          display: flex; // TODO: why isn't &:extend isn't working
-          align-items: center;
-          justify-content: space-between;
-          padding: .25rem 1rem;
-          border-bottom: 1px solid @color-border--light-gray;
-          font-size: .9rem;
-
-          h2 {
-            display: inline-block;
-            margin-bottom: 0;
-          }
-        }
-
-        .no-archives {
-          font-size: .85rem;
-        }
-      }
+      flex: 1;
+      margin-top: 20px;
     }
+  }
 
-    @media (min-width: @tablet-horizontal) {
-      
-      .tabbed-archive-list {
-        width: 60%;
-        margin-right: 4rem;
-      }
+  @media (max-width: @tablet-horizontal) {
+    .your-archives {
+      margin: 2rem 1rem;
 
-      .sidebar {
-        width: 30%;
-        margin-top: 47px;
+      .archive {
+        padding: 1rem;
+        font-size: 1rem;
       }
     }
   }
