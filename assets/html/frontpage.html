@@ -58,14 +58,14 @@
               <% } %>
 
               <ul class="archives">
-                <% sessionUser.archives.forEach(archive => { %>
+                <% userArchives.forEach(archive => { %>
                   <a class="archive" href="/<%= sessionUser.username%>/<%= archive.name %>">
                     <span class="name">
-                      <%= archive.name %>
+                      <%= archive.title || archive.name %>
                     </span>
                     <span class="peer-count">
                       <i class="fa fa-share-alt"></i>
-                      3
+                      <%= archive.numPeers %>
                     </span>
                   </a>
                 <% }) %>

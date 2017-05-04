@@ -58,60 +58,6 @@ main.home {
         text-decoration: underline;
       }
     }
-
-    .pricing {
-      &:extend(.rounded);
-      background: @color-bg;
-      color: @color-text;
-      padding: 1rem;
-      margin-top: 2rem;
-
-      .price {
-        &:extend(.flex);
-        margin-bottom: 1rem;
-        padding-bottom: .25rem;
-        width: 100%;
-        justify-content: space-between;
-        border-bottom: 1px solid @color-border--light-gray;
-        font-weight: 700;
-
-        .cta {
-          font-weight: 500;
-
-          i {
-            margin-left: .25rem;
-          }
-
-          &:hover {
-
-            i {
-              transition: margin padding .3s ease;
-              margin-right: -.25rem;
-              padding-left: .25rem;
-            }
-          }
-        }
-
-        &.pro {
-          margin-top: 1rem;
-        }
-      }
-
-      .pro .features {
-        columns: 2;
-        -webkit-columns: 2;
-        -mox-columns: 2;
-      }
-
-      ul.features {
-        list-style-type: circle;
-        margin-left: 1.5rem;
-
-        li {
-          margin-left: 15px;
-        }
-      }
-    }
   }
 
   .highlighted-content {
@@ -131,25 +77,8 @@ main.home {
         margin-top: 0;
       }
 
-      .your-archives,
-      .activity {
-        border-radius: 3px; // TODO: why the f isn't &:extend(.rounded) working?
-        background: @color-bg--modal-form;
-        border: 1px solid @color-border--light-gray;
-      }
-
-      .activity {
-        padding: 1rem;
-
-        .event .time {
-          float: right;
-          color: @color-text--light;
-        }
-      }
-
       .your-archives {
         border-radius: 3px; // TODO: why the f isn't &:extend(.rounded) working?
-        background: @color-bg--modal-form;
         border: 1px solid @color-border--light-gray;
         margin-bottom: 2rem;
 
@@ -205,7 +134,7 @@ main.home {
 
       .sidebar {
         width: 30%;
-        margin-top: 47px;
+        margin-top: 20px;
       }
     }
   }
