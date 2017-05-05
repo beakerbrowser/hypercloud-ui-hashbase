@@ -13,12 +13,18 @@
       <h1 class="breadcrumbs">
         <a href="/<%= userRecord.username %>"><%= userRecord.username %></a>
       </h1>
-      <% if (session && session.id === userRecord.id) { %>
-        <a href="/new-archive" class="new-archive btn success">New archive</a>
-      <% } %>
 
       <div class="content">
       <div class="archives">
+        <div class="heading">
+          <% if (session && session.id === userRecord.id) { %>
+            <h2>Your archives</h2>
+            <a href="/new-archive" class="new-archive btn success small">New archive</a>
+          <% } else { %>
+            <h2><%= userRecord.username %>'s archives</h2>
+          <% } %>
+        </div>
+
         <% if (archives.length === 0) { %>
           <p><%= userRecord.username %> hasn't uploaded any archives.</p>
         <% } %>
