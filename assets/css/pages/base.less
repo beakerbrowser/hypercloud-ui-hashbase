@@ -21,13 +21,17 @@ main {
   .section {
 
     &:not(:last-child) {
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
     }
 
     p,
     form {
       max-width: 600px;
       margin: 1rem 0;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
     }
 
     a {
