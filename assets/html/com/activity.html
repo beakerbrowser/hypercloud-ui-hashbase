@@ -14,11 +14,11 @@
     <a href="/<%= event.username %>/<%= event.params.name %>" class="archive-name">
       <%= event.params.name %>
     </a>
-    
+
     <span class="time">
       <% var date = nicedate(event.ts) %>
       <%= date %>
-      <% if (date !== 'yesterday' || date !== 'just now') { %>
+      <% if (date !== 'yesterday' && date !== 'just now') { %>
         <span> ago</span>
       <% } %>
     </span>
