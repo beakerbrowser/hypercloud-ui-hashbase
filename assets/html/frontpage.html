@@ -20,7 +20,7 @@
           <div class="tabbed-archive-list">
             <div class="heading">
               <a class="active archives-view-link" data-view=".archives-view.popular">Popular</a>
-              <span class="divider"> | </span> 
+              <span class="divider"> | </span>
               <a class="archives-view-link" data-view=".archives-view.recent">Recent</a>
             </div>
 
@@ -33,13 +33,17 @@
             </div>
           </div>
 
-          <div class="sidebar">
-            <% if (session && sessionUser) { %>
+          <% if (session && sessionUser) { %>
+            <div class="sidebar">
               <% include com/your-archives.html %>
-            <% } else { %>
+              <% include com/tools-cta.html %>
+            </div>
+          <% } else { %>
+            <div class="sidebar reordered">
               <% include com/home-cta.html %>
-            <% } %>
-            <% include com/tools-cta.html %>
+              <% include com/tools-cta.html %>
+            </div>
+          <% } %>
           </div>
         </div>
       </div>
