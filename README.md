@@ -5,6 +5,7 @@ Hashbase UI module for [hypercloud](https://github.com/datprotocol/hypercloud)
 ## Extra config
 
 ```yaml
+proDiskUsageLimit: 10gb
 stripe:
   secretKey:
   publishableKey:

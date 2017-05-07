@@ -13,6 +13,7 @@
   "author": "Paul Frazee <pfrazee@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "bytes": "^2.5.0",
     "co-express": "^2.0.0",
     "ejs": "^2.5.6",
     "express": "^4.15.2",
