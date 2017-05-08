@@ -26,17 +26,17 @@
       <div class="section usage">
         <h2 id="storage">Storage</h2>
         <div class="progress-bar-container">
-          <span class="label">75/100 MB</span>
+          <span class="label"><%= diskUsage %>/<%= diskQuota %> MB</span>
           <div class="progress-bar"
                role="progressbar"
-               data-value="75"
+               data-value="<%= diskUsage %>"
                data-min="0"
-               data-max="100"
+               data-max="<%= diskQuota %>"
                data-label="MB"
-               aria-valuenow="75"
+               aria-valuenow="<%= diskUsage %>"
                aria-valuemin="0"
-               aria-valuemax="100">
-            <div class="progress"></div>
+               aria-valuemax="<%= diskQuota %>">
+            <div class="progress" style="width: <%= diskUsagePct %>%"></div>
           </div>
         </div>
 
@@ -45,6 +45,23 @@
           pluralize(sessionUser.archives.length, 'archive') %>
           <a href="/profile">View your profile</a>
         </p>
+
+        <% if (diskUsage > diskQuota) { %>
+          <div class="card">
+            <p>
+              <strong>You are out of disk space!</strong> <span class="text-muted">Your archives will still be hosted, but you can't add any new archives or upload any new files.</span>
+            </p>
+            <p>
+              Upgrade to Pro to get more space.
+            </p>
+            <p>
+              <a href="/account/upgrade" class="btn outline">
+                <span>Upgrade</span>
+                <span class="pro-tag">Pro</span>
+              </a>
+            </p>
+          </div>
+        <% } %>
       </div>
 
       <div class="section password">
