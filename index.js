@@ -18,7 +18,8 @@ module.exports = function ({ cloud, config }) {
       version: cloud.version,
       brandname: config.brandname,
       hostname: config.hostname,
-      port: config.port
+      port: config.port,
+      proDiskUsageLimit: config.proDiskUsageLimit
     }
   }
 
