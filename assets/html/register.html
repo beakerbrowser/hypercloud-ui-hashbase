@@ -11,6 +11,9 @@
     <div class="container">
       <form id="register" class="form modal-form" action="/v1/register" method="POST">
         <h1 class="heading">Join <%= appInfo.brandname %></h1>
+        <div class="alert success">
+          <strong>Closed Beta</strong>. Registration is only open to users who have been invited.
+        </div>
         <div id="error-general" class="alert warning" role="alert"></div>
 
         <p class="form-group">
