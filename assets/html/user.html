@@ -15,26 +15,28 @@
       </h1>
 
       <div class="content">
-      <div class="archives">
-        <div class="heading">
-          <% if (session && session.id === userRecord.id) { %>
-            <h2>Your archives</h2>
-            <a href="/new-archive" class="new-archive btn success small">New archive</a>
-          <% } else { %>
-            <h2><%= userRecord.username %>'s archives</h2>
-          <% } %>
+      <% if (archives.length) { %>
+        <div class="archives">
+          <div class="heading">
+            <% if (session && session.id === userRecord.id) { %>
+              <h2>Your archives</h2>
+              <a href="/new-archive" class="new-archive btn success small">New archive</a>
+            <% } else { %>
+              <h2><%= userRecord.username %>'s archives</h2>
+            <% } %>
+          </div>
+
+          <ul class="archive-list">
+            <% archives.forEach(archive => { %>
+              <%- include('com/archive-list-item', {archive: archive}) %>
+            <% }) %>
+          </ul>
         </div>
-
-        <% if (archives.length === 0) { %>
-          <p><%= userRecord.username %> hasn't uploaded any archives.</p>
-        <% } %>
-
-        <ul class="archive-list">
-          <% archives.forEach(archive => { %>
-            <%- include('com/archive-list-item', {archive: archive}) %>
-          <% }) %>
-        </ul>
-      </div>
+      <% } else { %>
+        <p class="archives">
+          <%= userRecord.username %> hasn't uploaded any archives.
+        </p>
+      <% } %>
 
       <div class="activity">
         <h2 class="heading">Recent activity</h2>
