@@ -15,6 +15,7 @@ $(function () {
     var xhr = $.post('/v1/account/email', values)
     xhr.done(function (res) {
       $('#success-msg').text('Click the verification link sent to ' + values.newEmail + ' to finish updating your account.')
+      $('#error-general').text('')
       $('.form-desc').text('')
       $('input').val('')
     })
