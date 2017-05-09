@@ -63,7 +63,7 @@ module.exports = function ({ cloud, config }) {
   app.get('/account/cancel-plan', hashbase.apis.pages.accountCancelPlan)
   app.get('/account/canceled-plan', hashbase.apis.pages.accountCanceledPlan)
   app.get('/account/change-password', hashbase.apis.pages.accountChangePassword)
-  app.get('/account/update-email', hashbase.apis.pages.updateEmail)
+  app.get('/account/update-email', hashbase.apis.pages.accountUpdateEmail)
   app.get('/account', hashbase.apis.pages.account)
 
   // accounts api
