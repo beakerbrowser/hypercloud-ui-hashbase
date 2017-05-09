@@ -49,30 +49,33 @@
         <ul>
           <li>
             <span id="dat-raw-url" class="dat-link"><%= rawUrl %></span>
-            <a class="copy-to-clipboard" data-target="#dat-raw-url" title="Copy to clipboard">
+            <a class="copy-to-clipboard" data-target="#dat-raw-url" data-feedback-el="#dat-raw-url-feedback" title="Copy to clipboard">
               <i class="fa fa-clipboard"></i>
             </a>
             <a href="<%= rawUrl %>" title="<%= rawUrl %>">
               <i class="fa fa-external-link"></i>
             </a>
+            <em id="dat-raw-url-feedback"></em>
           </li>
           <li>
             <span id="dat-nice-url" class="dat-link">dat://<%= niceUrl %></span>
-            <a class="copy-to-clipboard" data-target="#dat-nice-url" title="Copy to clipboard">
+            <a class="copy-to-clipboard" data-target="#dat-nice-url" data-feedback-el="#dat-nice-url-feedback" title="Copy to clipboard">
               <i class="fa fa-clipboard"></i>
             </a>
             <a href="dat://<%= niceUrl %>" title="<%= niceUrl %>" target="_blank">
               <i class="fa fa-external-link"></i>
             </a>
+            <em id="dat-nice-url-feedback"></em>
           </li>
           <li>
             <span id="https-nice-url" class="dat-link">https://<%= niceUrl %></span>
-            <a class="copy-to-clipboard" data-target="#https-nice-url" title="Copy to clipboard">
+            <a class="copy-to-clipboard" data-target="#https-nice-url" data-feedback-el="#https-nice-url-feedback" title="Copy to clipboard">
               <i class="fa fa-clipboard"></i>
             </a>
             <a href="https://<%= niceUrl %>" title="<%= niceUrl %>" target="_blank">
               <i class="fa fa-external-link"></i>
             </a>
+            <em id="https-nice-url-feedback"></em>
           </li>
         </ul>
       </div>

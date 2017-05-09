@@ -1,6 +1,6 @@
 /* global $ */
 
-// clipboard js
+// tabbed archives list js
 $(function () {
   var viewButtons = $('.archives-view-link')
   var views = $('.archives-view')
