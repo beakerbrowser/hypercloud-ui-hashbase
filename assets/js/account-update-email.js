@@ -16,6 +16,7 @@ $(function () {
     xhr.done(function (res) {
       $('#success-msg').text('Click the verification link sent to ' + values.newEmail + ' to finish updating your account.')
       $('.form-desc').text('')
+      $('input').val('')
     })
     xhr.fail(function (res) {
       // failure, render errors
