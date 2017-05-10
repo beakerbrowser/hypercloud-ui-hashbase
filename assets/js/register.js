@@ -38,7 +38,7 @@ $(function () {
 
   function renderErrors (json) {
     // general error
-    $('#error-general').text(json.message)
+    $('#error-general').text(json.message || json)
 
     // individual form errors
     var details = json.details || {}
