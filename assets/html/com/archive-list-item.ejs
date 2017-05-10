@@ -8,7 +8,7 @@
 
     <div class="info">
       <div class="archive-heading">
-        <a href="dat://<%= archive.niceUrl || archive.key %>" class="title">
+        <a href="/<%= archive.owner.username %>/<%= archive.name %>" class="title">
           <% if (archive.manifest) { %>
             <%= archive.manifest.title || archive.name %>
           <% } else { %>
@@ -35,8 +35,7 @@
       <div class="metadata">
         <code><%= archive.niceUrl %></code>
         <a href="https://<%= archive.niceUrl %>">web</a> &bull;
-        <a href="dat://<%= archive.niceUrl %>">p2p</a> &bull;
-        <a href="/<%= archive.owner.username %>/<%= archive.name %>">info</a>
+        <a href="dat://<%= archive.niceUrl %>">p2p</a>
       </div>
     </div>
   </li>
