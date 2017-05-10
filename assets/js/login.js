@@ -33,5 +33,21 @@ $(function () {
   function renderErrors (json) {
     // general error
     $('#error-general').text(json.message || json)
+
+    // individual form errors
+    var details = json.details || {}
+    ;(['username', 'password']).forEach(function (name) {
+      if (details[name]) {
+        $('#error-' + name)
+          .text(details[name].msg)
+          .parent()
+          .addClass('warning')
+      } else {
+        $('#error-' + name)
+        .text('')
+        .parent()
+        .removeClass('warning')
+      }
+    })
   }
 })
