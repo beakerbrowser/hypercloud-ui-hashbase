@@ -35,7 +35,7 @@ $(function () {
 
     // individual form errors
     var details = json.details || {}
-    ;(['newPassword', 'password']).forEach(function (name) {
+    ;(['newEmail', 'password']).forEach(function (name) {
       if (details[name]) {
         $('#error-' + name)
           .text(details[name].msg)
