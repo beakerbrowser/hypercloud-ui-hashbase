@@ -24,7 +24,11 @@ $(function () {
     var nameVal = addArchiveNameInput.val()
 
     // update the name output
-    addArchiveNameOutput.text(nameVal || 'datname')
+    if (nameVal === window.params.username) {
+      addArchiveNameOutput.text('')
+    } else {
+      addArchiveNameOutput.text((nameVal || '') + '.')      
+    }
 
     // update submit button disabled state
     if (keyVal) addArchiveSubmitBtn.removeAttr('disabled')
