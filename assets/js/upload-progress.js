@@ -8,9 +8,14 @@ $(function () {
   var label = progressBarContainer.find('.label')
   var key = progressBar.data('key')
 
+  onProgress(window.params.progress)
+
   var events = new EventSource('/v1/archives/' + key + '?view=status')
   events.addEventListener('message', function (e) {
-    var progress = (+e.data * 100) | 0
+    onProgress((+e.data * 100) | 0)
+  })
+
+  function onProgress (progress) {
     progressBar.attr('aria-valuenow', progress)
     progressInner.attr('style', 'width: ' + progress + '%')
     label.find('span').html(progress + '%')
@@ -19,5 +24,5 @@ $(function () {
     } else {
       label.find('i').hide()
     }
-  })
+  }
 })

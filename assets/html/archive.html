@@ -99,6 +99,11 @@
     <script src="/assets/js/archive.js"></script>
     <script src="/assets/js/clipboard.js"></script>
     <% if (isOwner) { %>
+      <script>
+        window.params = {
+          progress: <%= progress %>
+        }
+      </script>
       <script src="/assets/js/upload-progress.js"></script>
     <% } %>
   </body>
