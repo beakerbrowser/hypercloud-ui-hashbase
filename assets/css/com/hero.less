@@ -1,6 +1,27 @@
+.hero-container {
+  &:extend(.flex);
+
+  .flex-spacer {
+    flex: 0;
+  }
+
+  @media (min-width: @desktop-wide) {
+
+    .hero {
+      flex: 2;
+      margin-right: 4rem;
+    }
+
+    .flex-spacer {
+      flex: 1;
+    }
+  }
+}
+
 .hero {
   &:extend(.rounded);
   width: 100%;
+  flex: 1;
   background: @blue;
   color: @color-text--white-transparent;
   padding: 15px;
@@ -48,9 +69,5 @@
       right: 15px;
       bottom: 19px;
     }
-  }
-
-  @media (min-width: @desktop-wide) {
-    width: 66%;
   }
 }
