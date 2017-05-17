@@ -3,7 +3,8 @@
 
   .tool {
     border-bottom: 1px solid @color-border--light-gray;
-    padding: .5rem 1rem;
+    padding: .75rem;
+    padding-top: .65rem;
     width: 100%;
 
     &:first-of-type {
@@ -16,17 +17,44 @@
       margin-bottom: .5rem;
     }
 
+    img {
+      width: 100px;
+      height: 60px;
+      border: 1px solid @color-border--light-gray;
+    }
+
+    .info {
+      &:extend(.flex);
+      flex-wrap: nowrap !important;
+    }
+
     a {
       color: @blue;
-      font-weight: 500;
+
+      &.title {
+        font-weight: 500;
+      }
 
       &:hover {
         &:extend(.link);
       }
     }
 
+    h5 {
+      margin: 0;
+      margin-bottom: 5px;
+      font-size: .9rem;
+    }
+
     .description {
-      margin-left: .25rem;
+      margin-left: .5rem;
+      vertical-align: top;
+      font-size: .8rem;
+    }
+
+    .links {
+      color: @blue;
+      margin-top: 5px;
     }
   }
 }
