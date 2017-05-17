@@ -28,6 +28,23 @@ main.home {
     width: 100%;
   }
 
+  .sidebar {
+    margin-top: 1.5em;
+  }
+
+  .sidebar .callout {
+    &:extend(.rounded);
+    background: @color-bg--light-gray;
+    border: 1px solid @color-border--lightest-gray;
+    padding: 1em;
+    font-size: .85rem;
+
+    a {
+      &:extend(.link);
+      color: @blue;
+    }
+  }
+
   .your-archives {
     border-radius: 3px; // TODO: why the f isn't &:extend(.rounded) working?
     border: 1px solid @color-border--light-gray;
