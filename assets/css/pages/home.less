@@ -90,6 +90,12 @@ main.home {
 
     .sidebar {
       flex: 1;
+      margin-top: 0;
+
+      // pull to top when hero is not full width
+      @media (min-width: @desktop-wide) {
+        margin-top: -117px;
+      }
     }
   }
 
