@@ -13,47 +13,10 @@ main.home {
       overflow: initial !important; // .rounded has overflow: hidden which messes up dropdown
     }
   }
- 
+
   .nav,
-  .mobile-nav-links,
-  .hero-container {
+  .mobile-nav-links {
     background: @color-text;
-  }
-
-  .hero {
-    &:extend(.antialiased);
-    font-weight: 500;
-    border-radius: 3px;
-
-    .tagline,
-    .blurb {
-      margin-bottom: 1.5rem;
-    }
-
-    .blurb {
-      margin-bottom: 2rem;
-
-      a {
-        &:extend(.link);
-      }
-    }
-
-    .intro .cta {
-      font-weight: 700;
-
-      .btn {
-        margin-right: 1rem;
-        font-weight: 700;
-
-        &:hover {
-          background: @color-bg--white-transparent;
-        }
-      }
-
-      .learn-more:hover {
-        text-decoration: underline;
-      }
-    }
   }
 
   .highlighted-content {
@@ -118,30 +81,15 @@ main.home {
     &:extend(.flex);
   }
 
-  .sidebar {
-    order: 3;
-  }
-
-  .sidebar.reordered {
-    order: 1;
-  }
-
-  .tabbed-archive-list {
-    order: 2;
-  }
-
   @media (min-width: @tablet-horizontal) {
 
     .tabbed-archive-list {
       flex: 2;
-      order: 1;
       padding-right: 4rem;
     }
 
     .sidebar {
       flex: 1;
-      order: 2;
-      margin-top: 20px;
     }
   }
 
