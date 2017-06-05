@@ -38,5 +38,20 @@
         <a href="dat://<%= archive.niceUrl %>">p2p</a>
       </div>
     </div>
+
+    <div class="archive-footer">
+      <span class="peer-count">
+        <i class="fa fa-share-alt"></i>
+        <%= archive.numPeers %> peers
+      </span>
+
+      <span class="time">
+        <% var date = nicedate(archive.createdAt) %>
+        <%= date %>
+        <% if (date !== 'yesterday' && date !== 'just now') { %>
+          <span> ago</span>
+        <% } %>
+      </span>
+    </div>
   </li>
 <% } %>

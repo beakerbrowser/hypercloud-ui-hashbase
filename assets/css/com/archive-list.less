@@ -1,6 +1,6 @@
 .archive-list {
 
-  li {
+  li.archive {
     position: relative;
     padding: .75rem .5rem;
     border-top: 1px solid @color-border--light-gray;
@@ -11,6 +11,25 @@
         opacity: 1;
       }
     }
+
+    > .peer-count {
+      height: 40px;
+      vertical-align: top;
+      font-size: 1.1rem;
+      margin-top: 0.4rem;
+      margin-right: .5rem;
+      width: 50px;
+      text-align: center;
+
+      i {
+        margin-right: 3px;
+      }
+
+      div {
+        font-size: 0.7rem;
+        color: @color-text--muted;
+      }
+    }
   }
 
   .archive-heading {
@@ -18,8 +37,7 @@
 
     .title {
       color: @blue;
-      font-weight: 700;
-      font-size: 1.3rem;
+      font-weight: 500;
     }
 
     a {
@@ -43,6 +61,53 @@
     position: absolute;
     right: .75rem;
     top: .75rem;
+    font-size: .85rem;
+  }
+
+  .peer-count,
+  .time {
+    display: none;
+  }
+
+  .archive-footer {
+    &:extend(.flex);
+    justify-content: space-between;
+    width: 100%;
+    color: @color-text--muted;
+    border-bottom: 1px solid @color-border--light-gray;
+    font-size: .85rem;
+    padding: 2px 0;
+    margin-top: 5px;
+
+    .peer-count,
+    .time {
+      display: inline-block;
+    }
+
+    .time {
+      position: inherit;
+    }
+  }
+
+
+  @media (min-width: 800px) {
+    .archive-footer {
+      display: none;
+      border: 0;
+
+      * {
+        display: none !important;
+      }
+    }
+
+    .time,
+    .peer-count {
+      display: inline-block;
+    }
+
+    .archive-heading .title {
+      font-size: 1.1rem;
+    }
   }
 
   .metadata {
@@ -65,7 +130,7 @@
 
   .http-link,
   .username {
-    
+
     &:hover {
       &:extend(.link);
     }
@@ -81,29 +146,10 @@
     vertical-align: bottom;
   }
 
-  .peer-count,
   .info {
+    &:extend(.overflow-ellipsis);
+    max-width: 100%;
     display: inline-block;
-  }
-
-  .peer-count {
-    display: inline-block;
-    height: 40px;
-    vertical-align: top;
-    font-size: 1.1rem;
-    margin-top: 0.4rem;
-    margin-right: 1rem;
-    width: 50px;
-    text-align: center;
-  
-    i {
-      margin-right: 3px;
-    }
-
-    div {
-      font-size: 0.7rem;
-      color: @color-text--muted;
-    }
   }
 }
 
@@ -111,7 +157,7 @@
   .archives-view:not(.active) {
     display: none;
   }
-  
+
   .heading {
     padding: .25rem .75rem;
   }
