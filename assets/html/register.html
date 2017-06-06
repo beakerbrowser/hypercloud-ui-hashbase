@@ -46,24 +46,9 @@
           </span>
         </p>
 
-        <% if (isProSignup) { %>
-          <p class="form-group">
-            <label for="card-element">
-              Credit or debit card number
-            </label>
-          </p>
-
-          <div id="card-element">
-            <!-- a Stripe Element will be inserted here. -->
-          </div>
-
-          <!-- Used to display form errors -->
-          <p id="card-errors" class="form-control-feedback"></p>
-        <% } %>
-
         <div class="actions">
           <% if (isProSignup) { %>
-            <button id="submit-btn" disabled class="btn success" type="submit">Create your account</button>
+            <button id="submit-btn" class="btn success" type="submit">Next</button>
           <% } else { %>
             <button id="submit-btn" class="btn success" type="submit">Create your account</button>
           <% } %>
@@ -77,12 +62,6 @@
 
     <% include com/footer-light.html %>
     <% include com/stdjs.html %>
-    <script src="https://js.stripe.com/v3/"></script>
-    <script>
-    window.params = {
-      stripePK: "<%= stripePK %>"
-    }
-    </script>
     <script src="/assets/js/register.js"></script>
   </body>
 </html>

@@ -56,6 +56,7 @@ module.exports = function ({ cloud, config }) {
   app.get('/forgot-password', hashbase.apis.pages.forgotPassword)
   app.get('/reset-password', hashbase.apis.pages.resetPassword)
   app.get('/register', hashbase.apis.pages.register)
+  app.get('/register/pro', hashbase.apis.pages.registerPro)
   app.get('/registered', hashbase.apis.pages.registered)
   app.get('/profile', hashbase.apis.pages.profileRedirect)
   app.get('/account/upgrade', hashbase.apis.pages.accountUpgrade)
@@ -70,6 +71,7 @@ module.exports = function ({ cloud, config }) {
   // =
 
   app.post('/v1/hashbase-accounts/upgrade', hashbase.apis.accounts.upgrade)
+  app.post('/v1/hashbase-accounts/register/pro', hashbase.apis.accounts.registerPro)
   app.post('/v1/hashbase-accounts/update-card', hashbase.apis.accounts.updateCard)
   app.post('/v1/hashbase-accounts/cancel-plan', hashbase.apis.accounts.cancelPlan)
 

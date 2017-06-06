@@ -2,32 +2,6 @@
 
 // register page js
 $(function () {
-  // create stripe elements
-  var stripe = Stripe(window.params.stripePK)
-  var elements = stripe.elements()
-  var card = elements.create('card', {style: {
-    base: {
-      color: '#32325d',
-      lineHeight: '24px',
-      fontFamily: 'Helvetica Neue',
-      fontSize: '16px',
-      '::placeholder': {
-        color: '#aab7c4'
-      }
-    },
-    invalid: {
-      color: '#fa755a',
-      iconColor: '#fa755a'
-    }
-  }})
-  card.mount('#card-element')
-
-  // render errors
-  card.addEventListener('change', function (e) {
-    $('#card-errors').text(e.error ? e.error.message : '')
-    $('#submit-btn').attr('disabled', !e.complete ? 'disabled' : null)
-  })
-
   // auto-render profile url on user changes
   var usernameInput = $('#input-username')
   var usernameOutput = $('#output-username')
@@ -50,7 +24,11 @@ $(function () {
     var xhr = $.post('/v1/register', values)
     xhr.done(function (res) {
       // success, redirect
-      window.location = '/registered?email=' + escape(values.email)
+      if (location.search && location.search.substring(1).split('=').indexOf('pro') !== -1) {
+        window.location = '/register/pro?id=' + res.id
+      } else {
+        window.location = '/registered?email=' + escape(values.email)
+      }
     })
     xhr.fail(function (res) {
       // failure, render errors
