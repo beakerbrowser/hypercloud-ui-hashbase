@@ -25,7 +25,7 @@ $(function () {
     xhr.done(function (res) {
       // success, redirect
       if (location.search && location.search.substring(1).split('=').indexOf('pro') !== -1) {
-        window.location = '/register/pro?id=' + res.id
+        window.location = '/register/pro?id=' + res.id + '&email=' + escape(values.email)
       } else {
         window.location = '/registered?email=' + escape(values.email)
       }
