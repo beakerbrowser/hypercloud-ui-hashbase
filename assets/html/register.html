@@ -8,9 +8,14 @@
     <%- include('com/nav.html', {navClass: ''}) %>
 
     <main>
-    <div class="container">
+    <p class="container">
       <form id="register" class="form modal-form" action="/v1/register" method="POST">
-        <h1 class="heading">Join <%= appInfo.brandname %></h1>
+        <h1 class="heading">
+          Join <%= appInfo.brandname %>
+          <% if (isProSignup) { %>
+            <p class="pro-tag">Pro</p>
+          <% } %>
+        </h1>
         <div class="alert primary">
           <strong>Closed Beta</strong>. Registration is only open to users who have been invited.
         </div>
@@ -42,7 +47,11 @@
         </p>
 
         <div class="actions">
-          <button class="btn success" type="submit">Create your account</button>
+          <% if (isProSignup) { %>
+            <button id="submit-btn" class="btn success" type="submit">Next</button>
+          <% } else { %>
+            <button id="submit-btn" class="btn success" type="submit">Create your account</button>
+          <% } %>
         </div>
         <div class="form-footer">
           By clicking on "Create your account", you are agreeing to the <a href="/terms">Terms of Service</a> and the <a href="/privacy">Privacy Policy</a>.
