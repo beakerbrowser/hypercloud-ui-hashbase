@@ -51,6 +51,7 @@ module.exports = function ({ cloud, config }) {
   app.get('/pricing', hashbase.apis.pages.pricing)
   app.get('/terms', hashbase.apis.pages.terms)
   app.get('/privacy', hashbase.apis.pages.privacy)
+  app.get('/acceptable-use', hashbase.apis.pages.acceptableUse)
   app.get('/support', hashbase.apis.pages.support)
   app.get('/login', hashbase.apis.pages.login)
   app.get('/forgot-password', hashbase.apis.pages.forgotPassword)
